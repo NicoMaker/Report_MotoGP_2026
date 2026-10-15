@@ -62,10 +62,14 @@ async function logos() {
   try {
     const dir = path.join(__dirname, "img", "teams"),
       EXT = { "image/svg+xml": "svg", "image/png": "png", "image/webp": "webp", "image/jpeg": "jpg" },
-      seen = {};
+      seen = {},
+      names = {};
     fs.mkdirSync(dir, { recursive: true });
     for (const r of JSON.parse(fs.readFileSync(file("results"), "utf8")).Races)
-      for (const y of r.Results) seen[y.Constructor.constructorId] ||= y.Constructor.logo;
+      for (const y of r.Results) {
+        seen[y.Constructor.constructorId] ||= y.Constructor.logo;
+        names[y.Constructor.constructorId] = y.Constructor.name;
+      }
     for (const [id, url] of Object.entries(seen)) {
       if (!url || !/^[a-z0-9_]+$/.test(id) || fs.readdirSync(dir).some((n) => n.startsWith(id + "."))) continue;
       try {
@@ -76,6 +80,27 @@ async function logos() {
           console.log("✓ logo squadra", id);
         }
       } catch {}
+    }
+    const has = (id) => fs.readdirSync(dir).some((n) => n.startsWith(id + "."));
+    // Poi TheSportsDB (badge delle squadre): prova col nome completo e con la sola marca
+    for (const id of Object.keys(seen)) {
+      if (has(id)) continue;
+      const nm = names[id] || id,
+        tries = [nm, nm.replace(/\b(racing|team|motogp|factory|lenovo|castrol|energy|monster|red bull|bk8|pertamina|enduro|superfile|prima)\b/gi, "").replace(/\s+/g, " ").trim()];
+      for (const t of tries) {
+        if (!t || has(id)) continue;
+        try {
+          const j = await (await fetch("https://www.thesportsdb.com/api/v1/json/3/searchteams.php?t=" + encodeURIComponent(t))).json(),
+            k = (nm.toLowerCase().match(/ducati|aprilia|gresini|vr46|trackhouse|honda|lcr|yamaha|pramac|ktm|tech3/) || [])[0],
+            x = (j.teams || []).find((y) => /motorsport|motorcycle|racing/i.test(y.strSport || "") && k && (y.strTeam || "").toLowerCase().replace(/[^a-z0-9]/g, "").includes(k) && (y.strBadge || y.strLogo));
+          if (!x) continue;
+          const r = await fetch(x.strBadge || x.strLogo);
+          if (r.ok) {
+            fs.writeFileSync(path.join(dir, id + ".png"), Buffer.from(await r.arrayBuffer()));
+            console.log("✓ logo squadra (TheSportsDB)", id, x.strTeam);
+          }
+        } catch {}
+      }
     }
     // Per le squadre rimaste senza logo: cerca il logo su Wikimedia Commons (il titolo del file deve contenere "logo" e il nome)
     const UA = { "User-Agent": "Report_MotoGP_2026/1.0 (local dashboard)" },
@@ -118,6 +143,8 @@ async function logos() {
         }
       } catch {}
     }
+    const miss = Object.keys(seen).filter((id) => !has(id));
+    if (miss.length) console.log("Squadre senza logo (metti img/teams/<id>.svg o .png):", miss.join(", "));
   } catch (e) {
     console.log("Errore loghi squadre:", e.message);
   }
