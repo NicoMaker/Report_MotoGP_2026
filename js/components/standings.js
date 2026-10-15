@@ -121,27 +121,3 @@ function team(id) {
     `<div class="chips">${ds.map((d) => `<a class="chip" href="#/driver/${d.Driver.driverId}" style="text-decoration:none">${rk(d.positionText)}${ph(d.Driver)}<b>${d.Driver.givenName[0]}. ${d.Driver.familyName}</b><em>${d.points} pt</em></a>`).join("")}</div>` +
     `<h3 class="sec" style="display:flex;align-items:center;gap:8px">${ticon(id, C.name, 22)} Risultati gara per gara</h3>${fbox("Cerca gara, pilota, vittoria, doppietta…")}<div class="grid trl">${rows.join("")}</div>`;
 }
-
-// Classifica costruttori = marca della moto (Ducati, Aprilia, KTM, Honda, Yamaha)
-const MK = { ducati: "#e10600", aprilia: "#7b2cbf", ktm: "#ff6600", honda: "#d7263d", yamaha: "#1d4ed8" };
-function makes() {
-  const m = {},
-    add = (rs, full) => {
-      for (const y of rs || []) {
-        const k = y.Constructor.make || "?",
-          o = (m[k] ||= { n: k, p: 0, w: 0 });
-        o.p += +y.points || 0;
-        if (full && +y.position === 1) o.w++;
-      }
-    };
-  S.races.forEach((r) => {
-    add(S.res[r.round]?.Results, 1);
-    add(S.sp[r.round]?.SprintResults, 0);
-  });
-  const l = Object.values(m).sort((a, b) => b.p - a.p || b.w - a.w),
-    mx = l[0]?.p || 1,
-    c = (n) => MK[norm(n)] || col(norm(n));
-  A.innerHTML =
-    `<h2>Classifica costruttori</h2><p class="mut">Punti per marca della moto (gare + sprint)</p>` +
-    tbl(["#", "Costruttore", medal(1) + " Vitt.", "Punti"], l.map((o, i) => [pb(i + 1), `<b>${esc(o.n)}</b>`, o.w, `<b>${o.p}</b><div class="bar" style="width:${(o.p / mx) * 100}%;background:${c(o.n)}"></div>`]), pod(l.map((_, i) => [i + 1])));
-}

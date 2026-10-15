@@ -15,11 +15,12 @@
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,700;1,800&family=Barlow+Semi+Condensed:wght@400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,700;1,800&family=Barlow+Semi+Condensed:wght@400;600&family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css?v=13" />
     <link rel="stylesheet" href="css/intro.css?v=13" />
+    <link rel="stylesheet" href="css/modern.css?v=19" />
     <script>
       // Tema applicato subito (evita il lampo) + intro a ogni ingresso nel sito
       (function () {
@@ -118,7 +119,7 @@
       <button id="rf" title="Ricarica i dati">↻</button>
       <nav>
         <a href="#/">Calendario</a><a href="#/drivers">Piloti</a
-        ><a href="#/teams">Squadre</a><a href="#/makes">Costruttori</a><a href="#/race">Gara</a>
+        ><a href="#/teams">Squadre</a><a href="#/race">Gara</a>
       </nav>
     </header>
     <main id="app"></main>
@@ -136,16 +137,23 @@
     <script src="js/components/search.js?v=13"></script>
     <script src="js/router.js?v=13"></script>
     <script src="js/intro.js?v=13"></script>
+    <script src="js/fx.js?v=16"></script>
     <script>
-      // Logo MotoGP (header, intro, favicon): prima img/motogp-logo.svg (se lo aggiungi), altrimenti emblema stilizzato.
-      // Se nessuno si carica restano gli emblemi stilizzati inline.
+      // Logo MotoGP (header, intro, favicon): file locale img/motogp-logo.png (scaricato dal server al primo avvio),
+      // altrimenti direttamente da Wikimedia. Se tutto fallisce restano gli emblemi stilizzati.
       (function () {
-        var L = ["img/motogp-logo.svg"];
+        var L = [
+          "img/motogp-logo.png",
+          "img/motogp-logo.svg",
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Moto_Gp_logo.svg/1280px-Moto_Gp_logo.svg.png",
+        ];
         (function t(i) {
           if (i >= L.length) return;
           var m = new Image();
           m.onload = function () {
-            document.getElementById("fav").href = L[i];
+            var fav = document.getElementById("fav");
+            fav.href = L[i];
+            fav.type = "";
             var h = document.getElementById("f1l"),
               g = document.getElementById("il");
             h.src = L[i];
@@ -155,9 +163,7 @@
             var im = document.getElementById("im");
             if (im) im.classList.add("hasimg");
           };
-          m.onerror = function () {
-            t(i + 1);
-          };
+          m.onerror = function () { t(i + 1); };
           m.src = L[i];
         })(0);
       })();

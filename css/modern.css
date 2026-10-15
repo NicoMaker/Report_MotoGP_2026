@@ -1,20 +1,20 @@
 /* ===== Tema moderno MotoGP: caricato dopo style.css, cambia solo l'aspetto ===== */
 :root {
-  --bg: #07080d; --fg: #f5f6fa; --mut: #8b90a0;
-  --card: #11131b; --card2: #181b26; --line: #232738;
-  --red: #ff2d2d; --acc2: #ff7a18; --glass: #07080dcc; --r: 20px;
-  --grad: linear-gradient(135deg, #ff2d2d, #ff7a18);
+  --bg: #050505; --fg: #ffffff; --mut: #9b9b9b;
+  --card: #111111; --card2: #1a1a1a; --line: #2b2b2b;
+  --red: #e10600; --acc2: #8f0400; --glass: #050505cc; --r: 20px;
+  --grad: linear-gradient(135deg, #e10600, #8f0400);
   --sh: 0 10px 30px -12px #000c;
 }
 :root[data-theme="light"] {
-  --bg: #f3f4f8; --fg: #12141c; --mut: #667085; --card: #ffffff; --card2: #eceef4; --line: #dfe2ec;
-  --glass: #f3f4f8d9; --sh: 0 10px 30px -14px #1a24402e;
+  --bg: #f2f2f2; --fg: #0a0a0a; --mut: #666666; --card: #ffffff; --card2: #e8e8e8; --line: #d8d8d8;
+  --glass: #f2f2f2d9; --sh: 0 10px 30px -14px #1a24402e;
 }
 body {
   font: 15px/1.5 "Inter", "Segoe UI", system-ui, sans-serif;
   background:
-    radial-gradient(700px 380px at 90% -120px, #ff2d2d2e, transparent) no-repeat,
-    radial-gradient(600px 340px at -10% 10%, #ff7a181a, transparent) no-repeat,
+    radial-gradient(700px 380px at 90% -120px, #e106002e, transparent) no-repeat,
+    radial-gradient(600px 340px at -10% 10%, #8f04001a, transparent) no-repeat,
     var(--bg);
   background-attachment: fixed;
 }
@@ -33,10 +33,10 @@ header:after { width: 140px; height: 2px; background: var(--grad); border-radius
 .logo b { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
 nav a { font-weight: 600; font-size: 14px; padding: 7px 14px; }
 nav a:hover { background: var(--card2); }
-nav a.on { background: var(--grad); box-shadow: 0 6px 18px -6px #ff2d2d99; }
+nav a.on { background: var(--grad); box-shadow: 0 6px 18px -6px #e1060099; }
 #nb { background: var(--grad) !important; }
 .sb input, .tf { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 9px 16px; }
-.sb input:focus, .tf:focus, select:focus { border-color: var(--red); box-shadow: 0 0 0 4px #ff2d2d26; }
+.sb input:focus, .tf:focus, select:focus { border-color: var(--red); box-shadow: 0 0 0 4px #e1060026; }
 header button { background: var(--card); border: 1px solid var(--line); border-radius: 12px; color: var(--fg); transition: .2s; }
 header button:hover { background: var(--card2); transform: rotate(20deg); }
 /* card e blocchi */
@@ -49,10 +49,10 @@ header button:hover { background: var(--card2); transform: rotate(20deg); }
   transform: translateY(-4px); border-color: color-mix(in srgb, var(--tc, var(--red)) 70%, transparent);
   box-shadow: 0 18px 40px -16px color-mix(in srgb, var(--tc, var(--red)) 55%, #000);
 }
-.rc.nx { border-color: var(--red); box-shadow: 0 0 0 1px var(--red), 0 18px 40px -16px #ff2d2d88; }
+.rc.nx { border-color: var(--red); box-shadow: 0 0 0 1px var(--red), 0 18px 40px -16px #e1060088; }
 .rc .rn { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; font-family: "Sora", sans-serif; font-weight: 800; }
 .hero { background: radial-gradient(500px 220px at 100% 0, color-mix(in srgb, var(--tc, var(--red)) 30%, transparent), transparent), var(--card); }
-.next { background: linear-gradient(120deg, #ff2d2d22, transparent 60%), var(--card); }
+.next { background: linear-gradient(120deg, #e1060022, transparent 60%), var(--card); }
 .next .cd b { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .bar, .bar2 i { border-radius: 99px; }
 .bar2 { border-radius: 99px; overflow: hidden; background: var(--card2); }
@@ -74,7 +74,7 @@ tbody tr:nth-child(even) { background: color-mix(in srgb, var(--card2) 35%, tran
 /* tab, select, chip, bottoni */
 .tabs a { border-radius: 999px; background: var(--card); border: 1px solid var(--line); transition: .2s; }
 .tabs a:hover { border-color: var(--red); }
-.tabs a.on { background: var(--grad); border-color: transparent; color: #fff; box-shadow: 0 8px 20px -8px #ff2d2d99; }
+.tabs a.on { background: var(--grad); border-color: transparent; color: #fff; box-shadow: 0 8px 20px -8px #e1060099; }
 .ssb, .chip, .nv a { border-radius: 14px; background: var(--card); border: 1px solid var(--line); }
 .nv a:hover, .ssb:hover { border-color: var(--red); }
 .ssp { border-radius: 16px; box-shadow: 0 24px 60px -20px #000d; backdrop-filter: blur(16px); }
@@ -95,16 +95,16 @@ footer { color: var(--mut); border-top: 1px solid var(--line); }
 /* ===== Extra: effetti avanzati ===== */
 html::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
   background:
-    radial-gradient(40vmax 40vmax at 15% 20%, #ff2d2d14, transparent 60%),
-    radial-gradient(35vmax 35vmax at 85% 70%, #ff7a1810, transparent 60%);
+    radial-gradient(40vmax 40vmax at 15% 20%, #e1060014, transparent 60%),
+    radial-gradient(35vmax 35vmax at 85% 70%, #8f040010, transparent 60%);
   animation: orb 18s ease-in-out infinite alternate; }
 @keyframes orb { to { transform: translate3d(-3%, 4%, 0) scale(1.08); } }
-::selection { background: #ff2d2d66; }
+::selection { background: #e1060066; }
 #sp { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 50; background: var(--grad); transform: scaleX(0); transform-origin: 0 50%; pointer-events: none; }
 /* bagliore che segue il mouse sulle card */
 .card, .rc, .tc, .dc2, .trw, .next {
   background:
-    radial-gradient(280px circle at var(--mx, -400px) var(--my, -400px), color-mix(in srgb, var(--tc, #ff2d2d) 22%, transparent), transparent 65%),
+    radial-gradient(280px circle at var(--mx, -400px) var(--my, -400px), color-mix(in srgb, var(--tc, #e10600) 22%, transparent), transparent 65%),
     linear-gradient(180deg, color-mix(in srgb, var(--card) 92%, #fff 8%), var(--card));
 }
 /* striscia colore squadra a sinistra */
@@ -115,7 +115,7 @@ html::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-even
 }
 /* prossima gara: bordo animato e pulsazione */
 .rc.nx { animation: glow 2.6s ease-in-out infinite; }
-@keyframes glow { 50% { box-shadow: 0 0 0 1px var(--red), 0 0 34px -4px #ff2d2daa; } }
+@keyframes glow { 50% { box-shadow: 0 0 0 1px var(--red), 0 0 34px -4px #e10600aa; } }
 .pc.s1 { animation: gold 3.5s ease-in-out infinite; }
 @keyframes gold { 50% { box-shadow: 0 24px 60px -16px #ffd23fcc; } }
 /* titoli e numeri grandi */
@@ -123,17 +123,17 @@ html::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-even
 .stats div { text-align: center; position: relative; overflow: hidden; }
 .stats div:before { content: ""; position: absolute; inset: auto 20% 0; height: 2px; background: var(--grad); opacity: .7; border-radius: 2px; }
 /* campione */
-.champ { background: linear-gradient(110deg, #ffd23f33, #ff2d2d1f 55%, transparent), var(--card); border-color: #ffd23f88; }
+.champ { background: linear-gradient(110deg, #ffd23f33, #e106001f 55%, transparent), var(--card); border-color: #ffd23f88; }
 .pill, .tag, u.tag { border-radius: 999px; }
 /* chip e link riga */
 .chip { transition: .2s; } .chip:hover { transform: translateY(-2px); border-color: var(--red); }
 .tn:hover, .dn:hover { color: var(--red); }
 /* caricamento: pista che scorre */
 .ld { color: var(--mut); text-align: center; padding: 60px 0; }
-.ld i { display: block; margin: 0 auto 14px; width: 220px; height: 4px; border-radius: 4px; background: linear-gradient(90deg, transparent, #ff2d2d, #ff7a18, transparent); background-size: 200% 100%; animation: run 1s linear infinite; }
+.ld i { display: block; margin: 0 auto 14px; width: 220px; height: 4px; border-radius: 4px; background: linear-gradient(90deg, transparent, #e10600, #8f0400, transparent); background-size: 200% 100%; animation: run 1s linear infinite; }
 @keyframes run { to { background-position: -200% 0; } }
 /* intro */
-.intro { background: radial-gradient(600px 400px at 50% 40%, #ff2d2d33, transparent 70%), #07080d !important; }
+.intro { background: radial-gradient(600px 400px at 50% 40%, #e1060033, transparent 70%), #050505 !important; }
 .intro h2 b { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
 /* mobile */
 @media (max-width: 720px) {
@@ -143,3 +143,36 @@ html::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-even
   td, th { padding: 9px 8px; }
   .pc { border-radius: 18px; }
 }
+
+/* Logo MotoGP ufficiale (wordmark largo) */
+.logo .f1lg { height: 30px; width: auto; margin-right: 8px; }
+.intro .mk.hasimg img.lg { width: 70%; height: auto; max-height: 40%; object-fit: contain; }
+/* MotoGP: linea rossa a scacchi sotto l'header e stripe in cima alle card */
+header:before { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 3px; opacity: .9;
+  background: repeating-linear-gradient(90deg, var(--red) 0 24px, transparent 24px 30px); -webkit-mask: linear-gradient(90deg, #000, transparent 70%); mask: linear-gradient(90deg, #000, transparent 70%); pointer-events: none; }
+header { position: sticky; }
+
+/* Palette ufficiale MotoGP: rosso, nero, bianco, grigio */
+:root { --bg: #050505; --card: #111111; --card2: #1a1a1a; --line: #2b2b2b; --mut: #9b9b9b; --fg: #ffffff; --grad: linear-gradient(135deg, #e10600, #8f0400); --glass: #050505d9; }
+:root[data-theme="light"] { --bg: #f2f2f2; --fg: #0a0a0a; --card: #ffffff; --card2: #e8e8e8; --line: #d8d8d8; --mut: #666666; --glass: #f2f2f2e6; }
+.intro { background: radial-gradient(600px 400px at 50% 40%, #e1060033, transparent 70%), #050505 !important; }
+:root[data-theme="light"] .intro { background: radial-gradient(600px 400px at 50% 40%, #e106001f, transparent 70%), #f2f2f2 !important; }
+
+/* Mobile: ricerca sempre visibile su riga intera */
+@media (max-width: 640px) {
+  header { flex-wrap: wrap; row-gap: 8px; }
+  header .logo { order: 0; flex: 1; }
+  header button { order: 1; }
+  header .sb { order: 2; flex: 1 1 100%; }
+  header nav { order: 3; width: 100%; overflow-x: auto; white-space: nowrap; }
+  header .sb input { font-size: 16px; }
+}
+
+/* Select con ricerca: il pannello aperto sta sopra podio e card */
+#app:has(.ssp:not([hidden])), #app :has(.ssp:not([hidden])) { position: relative; z-index: 50; }
+.ssp { z-index: 60; }
+/* Logo MotoGP (nero/rosso): su sfondo scuro lo metto su una targa bianca */
+.logo .f1lg { background: #fff; border-radius: 8px; padding: 3px 8px; height: 34px; box-sizing: border-box; }
+.intro .mk.hasimg { width: min(80vw, 440px); height: auto; }
+.intro .mk.hasimg .ring { display: none; }
+.intro .mk.hasimg img.lg { width: 100%; height: auto; max-height: none; background: #fff; border-radius: 20px; padding: 18px 28px; box-sizing: border-box; }

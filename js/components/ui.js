@@ -16,17 +16,49 @@ const medal = (n) => {
     ? `<svg class="mdl" viewBox="0 0 24 30" aria-hidden="true"><path d="M5 0h6l4 12H9z" fill="#e10600"/><path d="M19 0h-6l-4 12h6z" fill="#a80500"/><circle cx="12" cy="19" r="10" fill="${c[0]}"/><circle cx="12" cy="19" r="7.6" fill="${c[1]}"/><text x="12" y="19" dy=".35em" text-anchor="middle" font-size="13" font-weight="800" fill="${c[2]}" style="font-family:'Barlow Condensed',Impact,sans-serif;font-style:italic">${n}</text></svg>`
     : "";
 };
-// Emblemi squadra: cerchio + colore + sigla. Sopra va il logo ufficiale fornito dall'API MotoGP (LG);
+// Emblemi di riserva per squadra (colori e sigla), scelti per parola chiave nel nome della squadra
+const TM = [
+  ["pramac", "#d4af37", "#3a2f00", "PRA", "badge"],
+  ["tech3", "#ff6600", "#7a2f00", "TECH3", "hex"],
+  ["gresini", "#1e6fd9", "#0a2a66", "GRE", "shield"],
+  ["vr46", "#c8f000", "#2b3300", "VR46", "diamond"],
+  ["trackhouse", "#e4007c", "#5a0033", "TRK", "octagon"],
+  ["ducati", "#e10600", "#6a0300", "DUC", "shield"],
+  ["aprilia", "#7b2cbf", "#2a0f45", "APR", "hex"],
+  ["ktm", "#ff6600", "#1b1b1b", "KTM", "badge"],
+  ["lcr", "#e4002b", "#1b1b1b", "LCR", "rounded"],
+  ["honda", "#e4002b", "#7a0010", "HRC", "diamond"],
+  ["yamaha", "#1d4ed8", "#0a1f66", "YAM", "circle"],
+];
+const SHP = {
+  shield: "50,2 92,14 92,52 50,98 8,52 8,14",
+  hex: "50,2 93,26 93,74 50,98 7,74 7,26",
+  diamond: "50,2 98,50 50,98 2,50",
+  badge: "4,4 96,4 96,58 50,98 4,58",
+  octagon: "30,2 70,2 98,30 98,70 70,98 30,98 2,70 2,30",
+};
+const shp = (k, f) =>
+  k === "circle"
+    ? `<circle cx="50" cy="50" r="48" fill="${f}"/>`
+    : k === "rounded"
+      ? `<rect x="3" y="3" width="94" height="94" rx="26" fill="${f}"/>`
+      : `<polygon points="${SHP[k] || SHP.hex}" fill="${f}"/>`;
+// Sopra l'emblema va il logo ufficiale della squadra fornito dall'API MotoGP (LG);
 // se esiste img/teams/<id>.svg viene usato quello al suo posto.
 const LG = {};
 const ticon = (id, name = "", s) => {
-  const k = col(id),
-    t = (name || id).trim().split(/\s+/)[0].slice(0, 3).toUpperCase(),
-    fs = [0, 56, 42, 34][t.length] || 34;
+  const t = TM.find((x) => (id + " " + name).toLowerCase().replace(/[^a-z0-9]/g, "").includes(x[0])) || [
+      0,
+      col(id),
+      "#15171c",
+      (name || id).trim().split(/\s+/)[0].slice(0, 3).toUpperCase(),
+      "circle",
+    ],
+    fs = [0, 56, 42, 34, 28, 24][t[3].length] || 22;
   const lg = LG[id]
     ? `<img class="lg" src="${esc(LG[id])}" alt="${esc(name)}" loading="lazy" referrerpolicy="no-referrer" onload="this.parentNode.classList.add('lgok')" onerror="this.remove()">`
     : "";
-  return `<span class="ti" style="${s ? "--s:" + s + "px" : ""}" title="${esc(name)}"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="48" fill="#15171c"/><circle cx="50" cy="50" r="41" fill="${k}"/><text x="50" y="50" dy=".35em" text-anchor="middle" font-size="${fs}" fill="#fff" stroke="#15171c" stroke-width="5" paint-order="stroke" stroke-linejoin="round" style="font-family:'Barlow Condensed',Impact,sans-serif;font-weight:800;font-style:italic">${t}</text></svg>${lg}<img class="loc" src="img/teams/${id}.svg" alt="" onload="this.parentNode.classList.add('im')" onerror="this.remove()"></span>`;
+  return `<span class="ti" style="${s ? "--s:" + s + "px" : ""}" title="${esc(name)}"><svg viewBox="0 0 100 100" aria-hidden="true">${shp(t[4], t[2])}<g transform="translate(50 50) scale(.86) translate(-50 -50)">${shp(t[4], t[1])}</g><text x="50" y="50" dy=".35em" text-anchor="middle" font-size="${fs}" fill="#fff" stroke="${t[2]}" stroke-width="5" paint-order="stroke" stroke-linejoin="round" style="font-family:'Barlow Condensed',Impact,sans-serif;font-weight:800;font-style:italic">${t[3]}</text></svg>${lg}<img class="loc" src="img/teams/${id}.svg" alt="" onload="this.parentNode.classList.add('im')" onerror="var e=+(this.dataset.e||0),x=['png','webp','jpg'];if(e<3){this.dataset.e=e+1;this.src='img/teams/${id}.'+x[e]}else this.remove()"></span>`;
 };
 // Titolo mondiale: "final" = stagione finita, "clinched" = matematico con gare ancora da correre, "open" = ancora aperto.
 // Punti massimi ancora in palio: pilota 25 a gara + 12 a sprint; squadra 25+20 a gara + 12+9 a sprint.

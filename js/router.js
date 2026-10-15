@@ -37,7 +37,6 @@ async function route() {
       "": cal,
       drivers,
       teams,
-      makes,
       team: () => team(a),
       driver: () => driver(a),
       race: () => race(a, b),

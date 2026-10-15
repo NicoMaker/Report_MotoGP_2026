@@ -940,7 +940,7 @@ a.dc2:hover {
 .bar2 i {
   display: block;
   height: 100%;
-  background: linear-gradient(90deg, var(--red), #ff6a4d);
+  background: linear-gradient(90deg, var(--red), #ff2a1f);
   border-radius: 3px;
 }
 .next {
