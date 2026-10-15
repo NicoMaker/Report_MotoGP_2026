@@ -176,3 +176,17 @@ header { position: sticky; }
 .intro .mk.hasimg { width: min(80vw, 440px); height: auto; }
 .intro .mk.hasimg .ring { display: none; }
 .intro .mk.hasimg img.lg { width: 100%; height: auto; max-height: none; background: #fff; border-radius: 20px; padding: 18px 28px; box-sizing: border-box; }
+/* Prossima gara: card rossa con testo bianco (leggibile in tema chiaro e scuro) */
+.next, .next:hover { background: linear-gradient(120deg, #e10600, #7a0300) !important; color: #fff; border-color: #e10600; }
+.next h3, .next small, .next p, .next b, .next .cd b { color: #fff !important; -webkit-text-fill-color: #fff; background: none; }
+
+/* Logo della squadra accanto al pilota, ovunque (avatar): più grande e con logo vero se disponibile */
+.av .ti { --s: 26px; right: -8px; bottom: -6px; filter: drop-shadow(0 2px 4px #0008); }
+.av .ti img.lg { display: block; }
+.av .ti.lgok text { display: none; }
+.hero .av .ti { --s: 40px; }
+.pc .av .ti { --s: 34px; }
+.pc.s1 .av .ti { --s: 44px; }
+.dc2 .av .ti { --s: 30px; }
+#sr .av .ti { --s: 22px; }
+.av .ti img { background: #fff; }

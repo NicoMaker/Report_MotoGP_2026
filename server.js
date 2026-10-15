@@ -77,6 +77,47 @@ async function logos() {
         }
       } catch {}
     }
+    // Per le squadre rimaste senza logo: cerca il logo su Wikimedia Commons (il titolo del file deve contenere "logo" e il nome)
+    const UA = { "User-Agent": "Report_MotoGP_2026/1.0 (local dashboard)" },
+      Q = [
+        ["pramac", "Pramac Racing logo", /pramac/i],
+        ["tech3", "Tech3 Racing logo", /tech ?3/i],
+        ["gresini", "Gresini Racing logo", /gresini/i],
+        ["vr46", "VR46 Racing Team logo", /vr ?46/i],
+        ["trackhouse", "Trackhouse Racing logo", /trackhouse/i],
+        ["ducati", "Ducati Corse logo", /ducati/i],
+        ["aprilia", "Aprilia Racing logo", /aprilia/i],
+        ["ktm", "Red Bull KTM Factory Racing logo", /ktm/i],
+        ["lcr", "LCR Honda logo", /lcr/i],
+        ["honda", "Honda Racing Corporation logo", /honda|hrc/i],
+        ["yamaha", "Yamaha Motor Racing logo", /yamaha/i],
+      ];
+    for (const id of Object.keys(seen)) {
+      if (fs.readdirSync(dir).some((n) => n.startsWith(id + "."))) continue;
+      const q = Q.find((x) => id.includes(x[0]));
+      if (!q) continue;
+      try {
+        const j = await (
+            await fetch(
+              "https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrnamespace=6&gsrlimit=10&prop=imageinfo&iiprop=url%7Cmime&iiurlwidth=512&gsrsearch=" +
+                encodeURIComponent(q[1]),
+              { headers: UA },
+            )
+          ).json(),
+          hit = Object.values(j.query?.pages || {})
+            .sort((a, b) => a.index - b.index)
+            .find((p) => /logo/i.test(p.title) && q[2].test(p.title) && /^image\/(svg|png)/.test(p.imageinfo?.[0]?.mime || ""));
+        if (!hit) continue;
+        const ii = hit.imageinfo[0],
+          u = ii.mime.includes("svg") ? ii.thumburl || ii.url : ii.url,
+          r = await fetch(u, { headers: UA }),
+          e = (r.headers.get("content-type") || "").includes("svg") ? "svg" : "png";
+        if (r.ok) {
+          fs.writeFileSync(path.join(dir, id + "." + e), Buffer.from(await r.arrayBuffer()));
+          console.log("✓ logo squadra (Commons)", id, hit.title);
+        }
+      } catch {}
+    }
   } catch (e) {
     console.log("Errore loghi squadre:", e.message);
   }
