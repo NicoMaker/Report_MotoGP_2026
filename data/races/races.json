@@ -1,1 +1,338 @@
-{"Races":[{"season":"2026","round":"1","raceName":"PT Grand Prix of Thailand","Circuit":{"circuitId":"chang_international_circuit","circuitName":"Chang International Circuit","Location":{"locality":"Buriram","country":"Thailand","iso":"th"}},"date":"2026-03-01","time":"15:00:00Z","Sprint":{"date":"2026-03-01"}},{"season":"2026","round":"2","raceName":"Estrella Galicia 0,0 Grand Prix of Brazil","Circuit":{"circuitId":"autodromo_internacional_de_goiania_ayrton_senna","circuitName":"Autódromo Internacional de Goiânia - Ayrton Senna","Location":{"locality":"Goiania","country":"Brazil","iso":"br"}},"date":"2026-03-22","time":"15:00:00Z","Sprint":{"date":"2026-03-22"}},{"season":"2026","round":"3","raceName":"Red Bull Grand Prix of The United States","Circuit":{"circuitId":"circuit_of_the_americas","circuitName":"Circuit Of The Americas","Location":{"locality":"Austin","country":"United States of America","iso":"us"}},"date":"2026-03-29","time":"15:00:00Z","Sprint":{"date":"2026-03-29"}},{"season":"2026","round":"4","raceName":"Estrella Galicia 0,0 Grand Prix of Spain","Circuit":{"circuitId":"circuito_de_jerez_angel_nieto","circuitName":"Circuito de Jerez - Ángel Nieto","Location":{"locality":"Jerez de la Frontera","country":"Spain","iso":"es"}},"date":"2026-04-26","time":"14:00:00Z","Sprint":{"date":"2026-04-26"}},{"season":"2026","round":"5","raceName":"Michelin Grand Prix of France","Circuit":{"circuitId":"le_mans","circuitName":"Le Mans","Location":{"locality":"Le Mans","country":"France","iso":"fr"}},"date":"2026-05-10","time":"14:00:00Z","Sprint":{"date":"2026-05-10"}},{"season":"2026","round":"6","raceName":"Monster Energy Grand Prix of Catalonia","Circuit":{"circuitId":"circuit_de_barcelona_catalunya","circuitName":"Circuit de Barcelona-Catalunya","Location":{"locality":"Barcelona","country":"Spain","iso":"es"}},"date":"2026-05-17","time":"14:00:00Z","Sprint":{"date":"2026-05-17"}},{"season":"2026","round":"7","raceName":"BREMBO GRAND PRIX OF ITALY ","Circuit":{"circuitId":"autodromo_internazionale_del_mugello","circuitName":"Autodromo Internazionale del Mugello","Location":{"locality":"Mugello","country":"Italy","iso":"it"}},"date":"2026-05-31","time":"14:00:00Z","Sprint":{"date":"2026-05-31"}},{"season":"2026","round":"8","raceName":"GRAND PRIX OF HUNGARY ","Circuit":{"circuitId":"balaton_park_circuit","circuitName":"Balaton Park Circuit","Location":{"locality":"\tBalatonfokajár","country":"Hungary","iso":"hu"}},"date":"2026-06-07","time":"14:00:00Z","Sprint":{"date":"2026-06-07"}},{"season":"2026","round":"9","raceName":"MONSTER ENERGY GRAND PRIX OF CZECHIA ","Circuit":{"circuitId":"creditas_autodrom_brno","circuitName":"CREDITAS Autodrom Brno","Location":{"locality":"Brno","country":"Czechia","iso":"cz"}},"date":"2026-06-21","time":"14:00:00Z","Sprint":{"date":"2026-06-21"}},{"season":"2026","round":"10","raceName":"TISSOT GRAND PRIX OF THE NETHERLANDS ","Circuit":{"circuitId":"tt_circuit_assen","circuitName":"TT Circuit Assen","Location":{"locality":"Assen","country":"Netherlands","iso":"nl"}},"date":"2026-06-28","time":"14:00:00Z","Sprint":{"date":"2026-06-28"}},{"season":"2026","round":"11","raceName":"LIQUI MOLY GRAND PRIX OF GERMANY ","Circuit":{"circuitId":"sachsenring","circuitName":"Sachsenring","Location":{"locality":"Sachsenring","country":"Germany","iso":"de"}},"date":"2026-07-12","time":"14:00:00Z","Sprint":{"date":"2026-07-12"}},{"season":"2026","round":"12","raceName":"QATAR AIRWAYS GRAND PRIX OF GREAT BRITAIN ","Circuit":{"circuitId":"silverstone_circuit","circuitName":"Silverstone Circuit","Location":{"locality":"Silverstone","country":"United Kingdom of Great Britain and Northern Ireland","iso":"gb"}},"date":"2026-08-09","time":"13:00:00Z","Sprint":{"date":"2026-08-09"}},{"season":"2026","round":"13","raceName":"MICHELIN® GRAND PRIX OF ARAGON ","Circuit":{"circuitId":"motorland_aragon","circuitName":"MotorLand Aragón","Location":{"locality":"Alcañiz","country":"Spain","iso":"es"}},"date":"2026-08-30","time":"14:00:00Z","Sprint":{"date":"2026-08-30"}},{"season":"2026","round":"14","raceName":"RED BULL GRAND PRIX OF SAN MARINO AND THE RIMINI RIVIERA ","Circuit":{"circuitId":"misano_world_circuit_marco_simoncelli","circuitName":"Misano World Circuit Marco Simoncelli","Location":{"locality":"Misano Adriatico","country":"San Marino","iso":"sm"}},"date":"2026-09-13","time":"14:00:00Z","Sprint":{"date":"2026-09-13"}},{"season":"2026","round":"15","raceName":"QATAR AIRWAYS GRAND PRIX OF AUSTRIA ","Circuit":{"circuitId":"red_bull_ring_spielberg","circuitName":"Red Bull Ring - Spielberg","Location":{"locality":"Spielberg","country":"Austria","iso":"at"}},"date":"2026-09-20","time":"14:00:00Z","Sprint":{"date":"2026-09-20"}},{"season":"2026","round":"16","raceName":"MOTUL GRAND PRIX OF JAPAN ","Circuit":{"circuitId":"mobility_resort_motegi","circuitName":"Mobility Resort Motegi","Location":{"locality":"Motegi","country":"Japan","iso":"jp"}},"date":"2026-10-04","time":"14:00:00Z","Sprint":{"date":"2026-10-04"}},{"season":"2026","round":"17","raceName":"PERTAMINA GRAND PRIX OF INDONESIA ","Circuit":{"circuitId":"pertamina_mandalika_circuit","circuitName":"Pertamina Mandalika Circuit","Location":{"locality":"Lombok","country":"Indonesia","iso":"id"}},"date":"2026-10-11","time":"15:00:00Z","Sprint":{"date":"2026-10-11"}},{"season":"2026","round":"18","raceName":"GRAND PRIX OF AUSTRALIA ","Circuit":{"circuitId":"phillip_island","circuitName":"Phillip Island","Location":{"locality":"Phillip Island","country":"Australia","iso":"au"}},"date":"2026-10-25","time":"14:00:00Z","Sprint":{"date":"2026-10-25"}},{"season":"2026","round":"19","raceName":"Petronas Grand Prix of Malaysia","Circuit":{"circuitId":"petronas_sepang_international_circuit","circuitName":"Petronas Sepang International Circuit","Location":{"locality":"Sepang","country":"Malaysia","iso":"my"}},"date":"2026-11-01","time":"15:00:00Z","Sprint":{"date":"2026-11-01"}},{"season":"2026","round":"20","raceName":"Qatar Airways Grand Prix of Qatar","Circuit":{"circuitId":"lusail_international_circuit","circuitName":"Lusail International Circuit","Location":{"locality":"Doha","country":"Qatar","iso":"qa"}},"date":"2026-11-06","time":"20:00:00Z","Sprint":{"date":"2026-11-06"}},{"season":"2026","round":"21","raceName":"Repsol Grand Prix of Portugal","Circuit":{"circuitId":"autodromo_internacional_do_algarve","circuitName":"Autódromo Internacional do Algarve","Location":{"locality":"Portimao","country":"Portugal","iso":"pt"}},"date":"2026-11-15","time":"13:00:00Z","Sprint":{"date":"2026-11-15"}},{"season":"2026","round":"22","raceName":"Motul Grand Prix of Valencia","Circuit":{"circuitId":"circuit_ricardo_tormo","circuitName":"Circuit Ricardo Tormo","Location":{"locality":"Cheste","country":"Spain","iso":"es"}},"date":"2026-11-22","time":"14:00:00Z","Sprint":{"date":"2026-11-22"}}]}
+{
+  "Races": [
+    {
+      "season": "2026",
+      "round": "1",
+      "raceName": "PT Grand Prix of Thailand",
+      "Circuit": {
+        "circuitId": "chang_international_circuit",
+        "circuitName": "Chang International Circuit",
+        "Location": {
+          "locality": "Buriram",
+          "country": "Thailand",
+          "iso": "th"
+        }
+      },
+      "date": "2026-03-01",
+      "time": "15:00:00Z",
+      "Sprint": { "date": "2026-03-01" }
+    },
+    {
+      "season": "2026",
+      "round": "2",
+      "raceName": "Estrella Galicia 0,0 Grand Prix of Brazil",
+      "Circuit": {
+        "circuitId": "autodromo_internacional_de_goiania_ayrton_senna",
+        "circuitName": "Autódromo Internacional de Goiânia - Ayrton Senna",
+        "Location": { "locality": "Goiania", "country": "Brazil", "iso": "br" }
+      },
+      "date": "2026-03-22",
+      "time": "15:00:00Z",
+      "Sprint": { "date": "2026-03-22" }
+    },
+    {
+      "season": "2026",
+      "round": "3",
+      "raceName": "Red Bull Grand Prix of The United States",
+      "Circuit": {
+        "circuitId": "circuit_of_the_americas",
+        "circuitName": "Circuit Of The Americas",
+        "Location": {
+          "locality": "Austin",
+          "country": "United States of America",
+          "iso": "us"
+        }
+      },
+      "date": "2026-03-29",
+      "time": "15:00:00Z",
+      "Sprint": { "date": "2026-03-29" }
+    },
+    {
+      "season": "2026",
+      "round": "4",
+      "raceName": "Estrella Galicia 0,0 Grand Prix of Spain",
+      "Circuit": {
+        "circuitId": "circuito_de_jerez_angel_nieto",
+        "circuitName": "Circuito de Jerez - Ángel Nieto",
+        "Location": {
+          "locality": "Jerez de la Frontera",
+          "country": "Spain",
+          "iso": "es"
+        }
+      },
+      "date": "2026-04-26",
+      "time": "14:00:00Z",
+      "Sprint": { "date": "2026-04-26" }
+    },
+    {
+      "season": "2026",
+      "round": "5",
+      "raceName": "Michelin Grand Prix of France",
+      "Circuit": {
+        "circuitId": "le_mans",
+        "circuitName": "Le Mans",
+        "Location": { "locality": "Le Mans", "country": "France", "iso": "fr" }
+      },
+      "date": "2026-05-10",
+      "time": "14:00:00Z",
+      "Sprint": { "date": "2026-05-10" }
+    },
+    {
+      "season": "2026",
+      "round": "6",
+      "raceName": "Monster Energy Grand Prix of Catalonia",
+      "Circuit": {
+        "circuitId": "circuit_de_barcelona_catalunya",
+        "circuitName": "Circuit de Barcelona-Catalunya",
+        "Location": { "locality": "Barcelona", "country": "Spain", "iso": "es" }
+      },
+      "date": "2026-05-17",
+      "time": "14:00:00Z",
+      "Sprint": { "date": "2026-05-17" }
+    },
+    {
+      "season": "2026",
+      "round": "7",
+      "raceName": "BREMBO GRAND PRIX OF ITALY ",
+      "Circuit": {
+        "circuitId": "autodromo_internazionale_del_mugello",
+        "circuitName": "Autodromo Internazionale del Mugello",
+        "Location": { "locality": "Mugello", "country": "Italy", "iso": "it" }
+      },
+      "date": "2026-05-31",
+      "time": "14:00:00Z",
+      "Sprint": { "date": "2026-05-31" }
+    },
+    {
+      "season": "2026",
+      "round": "8",
+      "raceName": "GRAND PRIX OF HUNGARY ",
+      "Circuit": {
+        "circuitId": "balaton_park_circuit",
+        "circuitName": "Balaton Park Circuit",
+        "Location": {
+          "locality": "\tBalatonfokajár",
+          "country": "Hungary",
+          "iso": "hu"
+        }
+      },
+      "date": "2026-06-07",
+      "time": "14:00:00Z",
+      "Sprint": { "date": "2026-06-07" }
+    },
+    {
+      "season": "2026",
+      "round": "9",
+      "raceName": "MONSTER ENERGY GRAND PRIX OF CZECHIA ",
+      "Circuit": {
+        "circuitId": "creditas_autodrom_brno",
+        "circuitName": "CREDITAS Autodrom Brno",
+        "Location": { "locality": "Brno", "country": "Czechia", "iso": "cz" }
+      },
+      "date": "2026-06-21",
+      "time": "14:00:00Z",
+      "Sprint": { "date": "2026-06-21" }
+    },
+    {
+      "season": "2026",
+      "round": "10",
+      "raceName": "TISSOT GRAND PRIX OF THE NETHERLANDS ",
+      "Circuit": {
+        "circuitId": "tt_circuit_assen",
+        "circuitName": "TT Circuit Assen",
+        "Location": {
+          "locality": "Assen",
+          "country": "Netherlands",
+          "iso": "nl"
+        }
+      },
+      "date": "2026-06-28",
+      "time": "14:00:00Z",
+      "Sprint": { "date": "2026-06-28" }
+    },
+    {
+      "season": "2026",
+      "round": "11",
+      "raceName": "LIQUI MOLY GRAND PRIX OF GERMANY ",
+      "Circuit": {
+        "circuitId": "sachsenring",
+        "circuitName": "Sachsenring",
+        "Location": {
+          "locality": "Sachsenring",
+          "country": "Germany",
+          "iso": "de"
+        }
+      },
+      "date": "2026-07-12",
+      "time": "14:00:00Z",
+      "Sprint": { "date": "2026-07-12" }
+    },
+    {
+      "season": "2026",
+      "round": "12",
+      "raceName": "QATAR AIRWAYS GRAND PRIX OF GREAT BRITAIN ",
+      "Circuit": {
+        "circuitId": "silverstone_circuit",
+        "circuitName": "Silverstone Circuit",
+        "Location": {
+          "locality": "Silverstone",
+          "country": "United Kingdom of Great Britain and Northern Ireland",
+          "iso": "gb"
+        }
+      },
+      "date": "2026-08-09",
+      "time": "13:00:00Z",
+      "Sprint": { "date": "2026-08-09" }
+    },
+    {
+      "season": "2026",
+      "round": "13",
+      "raceName": "MICHELIN® GRAND PRIX OF ARAGON ",
+      "Circuit": {
+        "circuitId": "motorland_aragon",
+        "circuitName": "MotorLand Aragón",
+        "Location": { "locality": "Alcañiz", "country": "Spain", "iso": "es" }
+      },
+      "date": "2026-08-30",
+      "time": "14:00:00Z",
+      "Sprint": { "date": "2026-08-30" }
+    },
+    {
+      "season": "2026",
+      "round": "14",
+      "raceName": "RED BULL GRAND PRIX OF SAN MARINO AND THE RIMINI RIVIERA ",
+      "Circuit": {
+        "circuitId": "misano_world_circuit_marco_simoncelli",
+        "circuitName": "Misano World Circuit Marco Simoncelli",
+        "Location": {
+          "locality": "Misano Adriatico",
+          "country": "San Marino",
+          "iso": "sm"
+        }
+      },
+      "date": "2026-09-13",
+      "time": "14:00:00Z",
+      "Sprint": { "date": "2026-09-13" }
+    },
+    {
+      "season": "2026",
+      "round": "15",
+      "raceName": "QATAR AIRWAYS GRAND PRIX OF AUSTRIA ",
+      "Circuit": {
+        "circuitId": "red_bull_ring_spielberg",
+        "circuitName": "Red Bull Ring - Spielberg",
+        "Location": {
+          "locality": "Spielberg",
+          "country": "Austria",
+          "iso": "at"
+        }
+      },
+      "date": "2026-09-20",
+      "time": "14:00:00Z",
+      "Sprint": { "date": "2026-09-20" }
+    },
+    {
+      "season": "2026",
+      "round": "16",
+      "raceName": "MOTUL GRAND PRIX OF JAPAN ",
+      "Circuit": {
+        "circuitId": "mobility_resort_motegi",
+        "circuitName": "Mobility Resort Motegi",
+        "Location": { "locality": "Motegi", "country": "Japan", "iso": "jp" }
+      },
+      "date": "2026-10-04",
+      "time": "14:00:00Z",
+      "Sprint": { "date": "2026-10-04" }
+    },
+    {
+      "season": "2026",
+      "round": "17",
+      "raceName": "PERTAMINA GRAND PRIX OF INDONESIA ",
+      "Circuit": {
+        "circuitId": "pertamina_mandalika_circuit",
+        "circuitName": "Pertamina Mandalika Circuit",
+        "Location": {
+          "locality": "Lombok",
+          "country": "Indonesia",
+          "iso": "id"
+        }
+      },
+      "date": "2026-10-11",
+      "time": "15:00:00Z",
+      "Sprint": { "date": "2026-10-11" }
+    },
+    {
+      "season": "2026",
+      "round": "18",
+      "raceName": "GRAND PRIX OF AUSTRALIA ",
+      "Circuit": {
+        "circuitId": "phillip_island",
+        "circuitName": "Phillip Island",
+        "Location": {
+          "locality": "Phillip Island",
+          "country": "Australia",
+          "iso": "au"
+        }
+      },
+      "date": "2026-10-25",
+      "time": "14:00:00Z",
+      "Sprint": { "date": "2026-10-25" }
+    },
+    {
+      "season": "2026",
+      "round": "19",
+      "raceName": "Petronas Grand Prix of Malaysia",
+      "Circuit": {
+        "circuitId": "petronas_sepang_international_circuit",
+        "circuitName": "Petronas Sepang International Circuit",
+        "Location": { "locality": "Sepang", "country": "Malaysia", "iso": "my" }
+      },
+      "date": "2026-11-01",
+      "time": "15:00:00Z",
+      "Sprint": { "date": "2026-11-01" }
+    },
+    {
+      "season": "2026",
+      "round": "20",
+      "raceName": "Qatar Airways Grand Prix of Qatar",
+      "Circuit": {
+        "circuitId": "lusail_international_circuit",
+        "circuitName": "Lusail International Circuit",
+        "Location": { "locality": "Doha", "country": "Qatar", "iso": "qa" }
+      },
+      "date": "2026-11-06",
+      "time": "20:00:00Z",
+      "Sprint": { "date": "2026-11-06" }
+    },
+    {
+      "season": "2026",
+      "round": "21",
+      "raceName": "Repsol Grand Prix of Portugal",
+      "Circuit": {
+        "circuitId": "autodromo_internacional_do_algarve",
+        "circuitName": "Autódromo Internacional do Algarve",
+        "Location": {
+          "locality": "Portimao",
+          "country": "Portugal",
+          "iso": "pt"
+        }
+      },
+      "date": "2026-11-15",
+      "time": "13:00:00Z",
+      "Sprint": { "date": "2026-11-15" }
+    },
+    {
+      "season": "2026",
+      "round": "22",
+      "raceName": "Motul Grand Prix of Valencia",
+      "Circuit": {
+        "circuitId": "circuit_ricardo_tormo",
+        "circuitName": "Circuit Ricardo Tormo",
+        "Location": { "locality": "Cheste", "country": "Spain", "iso": "es" }
+      },
+      "date": "2026-11-22",
+      "time": "14:00:00Z",
+      "Sprint": { "date": "2026-11-22" }
+    }
+  ]
+}

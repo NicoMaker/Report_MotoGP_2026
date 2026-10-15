@@ -124,7 +124,9 @@
     </header>
     <main id="app"></main>
     <footer>
-      Dati: API ufficiale MotoGP (motogp.com) · foto Wikipedia · loghi squadre dalle API ufficiali (marchi dei rispettivi proprietari), con emblemi stilizzati di riserva
+      Dati: API ufficiale MotoGP (motogp.com) · foto Wikipedia · loghi squadre
+      dalle API ufficiali (marchi dei rispettivi proprietari), con emblemi
+      stilizzati di riserva
     </footer>
     <script src="js/api.js?v=13"></script>
     <script src="js/utils.js?v=13"></script>
@@ -163,7 +165,9 @@
             var im = document.getElementById("im");
             if (im) im.classList.add("hasimg");
           };
-          m.onerror = function () { t(i + 1); };
+          m.onerror = function () {
+            t(i + 1);
+          };
           m.src = L[i];
         })(0);
       })();

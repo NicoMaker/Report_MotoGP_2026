@@ -27,7 +27,12 @@ async function update() {
   MGP.reset();
   for (const k of MGP.CORE) {
     // le foto cambiano di rado: una volta al giorno
-    if (k === "photos" && fs.existsSync(file(k)) && Date.now() - fs.statSync(file(k)).mtimeMs < 864e5) continue;
+    if (
+      k === "photos" &&
+      fs.existsSync(file(k)) &&
+      Date.now() - fs.statSync(file(k)).mtimeMs < 864e5
+    )
+      continue;
     await save(k);
   }
   try {
@@ -48,7 +53,9 @@ async function logos() {
     try {
       const r = await fetch(
         "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Moto_Gp_logo.svg/1280px-Moto_Gp_logo.svg.png",
-        { headers: { "User-Agent": "Report_MotoGP_2026/1.0 (local dashboard)" } },
+        {
+          headers: { "User-Agent": "Report_MotoGP_2026/1.0 (local dashboard)" },
+        },
       );
       if (r.ok && (r.headers.get("content-type") || "").startsWith("image/")) {
         fs.mkdirSync(path.dirname(f), { recursive: true });
@@ -61,7 +68,12 @@ async function logos() {
   }
   try {
     const dir = path.join(__dirname, "img", "teams"),
-      EXT = { "image/svg+xml": "svg", "image/png": "png", "image/webp": "webp", "image/jpeg": "jpg" },
+      EXT = {
+        "image/svg+xml": "svg",
+        "image/png": "png",
+        "image/webp": "webp",
+        "image/jpeg": "jpg",
+      },
       seen = {},
       names = {};
     fs.mkdirSync(dir, { recursive: true });
@@ -71,12 +83,20 @@ async function logos() {
         names[y.Constructor.constructorId] = y.Constructor.name;
       }
     for (const [id, url] of Object.entries(seen)) {
-      if (!url || !/^[a-z0-9_]+$/.test(id) || fs.readdirSync(dir).some((n) => n.startsWith(id + "."))) continue;
+      if (
+        !url ||
+        !/^[a-z0-9_]+$/.test(id) ||
+        fs.readdirSync(dir).some((n) => n.startsWith(id + "."))
+      )
+        continue;
       try {
         const r = await fetch(url),
           e = EXT[(r.headers.get("content-type") || "").split(";")[0]];
         if (r.ok && e) {
-          fs.writeFileSync(path.join(dir, id + "." + e), Buffer.from(await r.arrayBuffer()));
+          fs.writeFileSync(
+            path.join(dir, id + "." + e),
+            Buffer.from(await r.arrayBuffer()),
+          );
           console.log("✓ logo squadra", id);
         }
       } catch {}
@@ -86,17 +106,47 @@ async function logos() {
     for (const id of Object.keys(seen)) {
       if (has(id)) continue;
       const nm = names[id] || id,
-        tries = [nm, nm.replace(/\b(racing|team|motogp|factory|lenovo|castrol|energy|monster|red bull|bk8|pertamina|enduro|superfile|prima)\b/gi, "").replace(/\s+/g, " ").trim()];
+        tries = [
+          nm,
+          nm
+            .replace(
+              /\b(racing|team|motogp|factory|lenovo|castrol|energy|monster|red bull|bk8|pertamina|enduro|superfile|prima)\b/gi,
+              "",
+            )
+            .replace(/\s+/g, " ")
+            .trim(),
+        ];
       for (const t of tries) {
         if (!t || has(id)) continue;
         try {
-          const j = await (await fetch("https://www.thesportsdb.com/api/v1/json/3/searchteams.php?t=" + encodeURIComponent(t))).json(),
-            k = (nm.toLowerCase().match(/ducati|aprilia|gresini|vr46|trackhouse|honda|lcr|yamaha|pramac|ktm|tech3/) || [])[0],
-            x = (j.teams || []).find((y) => /motorsport|motorcycle|racing/i.test(y.strSport || "") && k && (y.strTeam || "").toLowerCase().replace(/[^a-z0-9]/g, "").includes(k) && (y.strBadge || y.strLogo));
+          const j = await (
+              await fetch(
+                "https://www.thesportsdb.com/api/v1/json/3/searchteams.php?t=" +
+                  encodeURIComponent(t),
+              )
+            ).json(),
+            k = (nm
+              .toLowerCase()
+              .match(
+                /ducati|aprilia|gresini|vr46|trackhouse|honda|lcr|yamaha|pramac|ktm|tech3/,
+              ) || [])[0],
+            x = (j.teams || []).find(
+              (y) =>
+                /motorsport|motorcycle|racing/i.test(y.strSport || "") &&
+                k &&
+                (y.strTeam || "")
+                  .toLowerCase()
+                  .replace(/[^a-z0-9]/g, "")
+                  .includes(k) &&
+                (y.strBadge || y.strLogo),
+            );
           if (!x) continue;
           const r = await fetch(x.strBadge || x.strLogo);
           if (r.ok) {
-            fs.writeFileSync(path.join(dir, id + ".png"), Buffer.from(await r.arrayBuffer()));
+            fs.writeFileSync(
+              path.join(dir, id + ".png"),
+              Buffer.from(await r.arrayBuffer()),
+            );
             console.log("✓ logo squadra (TheSportsDB)", id, x.strTeam);
           }
         } catch {}
@@ -131,20 +181,34 @@ async function logos() {
           ).json(),
           hit = Object.values(j.query?.pages || {})
             .sort((a, b) => a.index - b.index)
-            .find((p) => /logo/i.test(p.title) && q[2].test(p.title) && /^image\/(svg|png)/.test(p.imageinfo?.[0]?.mime || ""));
+            .find(
+              (p) =>
+                /logo/i.test(p.title) &&
+                q[2].test(p.title) &&
+                /^image\/(svg|png)/.test(p.imageinfo?.[0]?.mime || ""),
+            );
         if (!hit) continue;
         const ii = hit.imageinfo[0],
           u = ii.mime.includes("svg") ? ii.thumburl || ii.url : ii.url,
           r = await fetch(u, { headers: UA }),
-          e = (r.headers.get("content-type") || "").includes("svg") ? "svg" : "png";
+          e = (r.headers.get("content-type") || "").includes("svg")
+            ? "svg"
+            : "png";
         if (r.ok) {
-          fs.writeFileSync(path.join(dir, id + "." + e), Buffer.from(await r.arrayBuffer()));
+          fs.writeFileSync(
+            path.join(dir, id + "." + e),
+            Buffer.from(await r.arrayBuffer()),
+          );
           console.log("✓ logo squadra (Commons)", id, hit.title);
         }
       } catch {}
     }
     const miss = Object.keys(seen).filter((id) => !has(id));
-    if (miss.length) console.log("Squadre senza logo (metti img/teams/<id>.svg o .png):", miss.join(", "));
+    if (miss.length)
+      console.log(
+        "Squadre senza logo (metti img/teams/<id>.svg o .png):",
+        miss.join(", "),
+      );
   } catch (e) {
     console.log("Errore loghi squadre:", e.message);
   }

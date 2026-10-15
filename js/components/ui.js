@@ -47,7 +47,12 @@ const shp = (k, f) =>
 // se esiste img/teams/<id>.svg viene usato quello al suo posto.
 const LG = {};
 const ticon = (id, name = "", s) => {
-  const t = TM.find((x) => (id + " " + name).toLowerCase().replace(/[^a-z0-9]/g, "").includes(x[0])) || [
+  const t = TM.find((x) =>
+      (id + " " + name)
+        .toLowerCase()
+        .replace(/[^a-z0-9]/g, "")
+        .includes(x[0]),
+    ) || [
       0,
       col(id),
       "#15171c",

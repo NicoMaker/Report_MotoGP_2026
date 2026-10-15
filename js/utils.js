@@ -3,7 +3,21 @@ const $ = (s) => document.querySelector(s),
   S = {};
 const COL = {};
 // Colori di riserva per parola chiave (se l'API non fornisce il colore della squadra)
-const KC = [["ducati","#e10600"],["pramac","#d4af37"],["gresini","#1e6fd9"],["vr46","#c8f000"],["aprilia","#7b2cbf"],["trackhouse","#e4007c"],["ktm","#ff6600"],["tech3","#ff6600"],["honda","#f0f0f0"],["lcr","#e4002b"],["yamaha","#1d4ed8"],["monster","#1d4ed8"],["prima","#1d4ed8"]];
+const KC = [
+  ["ducati", "#e10600"],
+  ["pramac", "#d4af37"],
+  ["gresini", "#1e6fd9"],
+  ["vr46", "#c8f000"],
+  ["aprilia", "#7b2cbf"],
+  ["trackhouse", "#e4007c"],
+  ["ktm", "#ff6600"],
+  ["tech3", "#ff6600"],
+  ["honda", "#f0f0f0"],
+  ["lcr", "#e4002b"],
+  ["yamaha", "#1d4ed8"],
+  ["monster", "#1d4ed8"],
+  ["prima", "#1d4ed8"],
+];
 const col = (id) =>
   COL[id] ||
   KC.find((k) => id.includes(k[0]))?.[1] ||
