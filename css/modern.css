@@ -1,0 +1,145 @@
+/* ===== Tema moderno MotoGP: caricato dopo style.css, cambia solo l'aspetto ===== */
+:root {
+  --bg: #07080d; --fg: #f5f6fa; --mut: #8b90a0;
+  --card: #11131b; --card2: #181b26; --line: #232738;
+  --red: #ff2d2d; --acc2: #ff7a18; --glass: #07080dcc; --r: 20px;
+  --grad: linear-gradient(135deg, #ff2d2d, #ff7a18);
+  --sh: 0 10px 30px -12px #000c;
+}
+:root[data-theme="light"] {
+  --bg: #f3f4f8; --fg: #12141c; --mut: #667085; --card: #ffffff; --card2: #eceef4; --line: #dfe2ec;
+  --glass: #f3f4f8d9; --sh: 0 10px 30px -14px #1a24402e;
+}
+body {
+  font: 15px/1.5 "Inter", "Segoe UI", system-ui, sans-serif;
+  background:
+    radial-gradient(700px 380px at 90% -120px, #ff2d2d2e, transparent) no-repeat,
+    radial-gradient(600px 340px at -10% 10%, #ff7a181a, transparent) no-repeat,
+    var(--bg);
+  background-attachment: fixed;
+}
+h1, h2, h3, .logo, .big, .dc2 .big, .pc b, .rc h3, .next h3, .hero h2 {
+  font-family: "Sora", "Inter", system-ui, sans-serif; font-style: normal; letter-spacing: -.02em;
+}
+h2 { font-size: 1.5rem; font-weight: 800; }
+h2:first-child:before, main > h2:before {
+  content: ""; display: inline-block; width: 6px; height: .9em; border-radius: 4px;
+  background: var(--grad); margin-right: 10px; vertical-align: -.1em;
+}
+/* header */
+header { background: var(--glass); backdrop-filter: blur(20px) saturate(160%); border-bottom: 1px solid var(--line); }
+header:after { width: 140px; height: 2px; background: var(--grad); border-radius: 2px; }
+.logo { font-weight: 800; font-size: 22px; }
+.logo b { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+nav a { font-weight: 600; font-size: 14px; padding: 7px 14px; }
+nav a:hover { background: var(--card2); }
+nav a.on { background: var(--grad); box-shadow: 0 6px 18px -6px #ff2d2d99; }
+#nb { background: var(--grad) !important; }
+.sb input, .tf { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 9px 16px; }
+.sb input:focus, .tf:focus, select:focus { border-color: var(--red); box-shadow: 0 0 0 4px #ff2d2d26; }
+header button { background: var(--card); border: 1px solid var(--line); border-radius: 12px; color: var(--fg); transition: .2s; }
+header button:hover { background: var(--card2); transform: rotate(20deg); }
+/* card e blocchi */
+.card, .rc, .tc, .dc2, .next, .stats div, .win, .trw, .champ, .tw, .hero {
+  border-radius: var(--r); border: 1px solid var(--line);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--card) 92%, #fff 8%), var(--card));
+  box-shadow: var(--sh); transition: transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s, border-color .25s;
+}
+.card:hover, .rc:hover, .tc:hover, .dc2:hover, .next:hover, .trw:hover {
+  transform: translateY(-4px); border-color: color-mix(in srgb, var(--tc, var(--red)) 70%, transparent);
+  box-shadow: 0 18px 40px -16px color-mix(in srgb, var(--tc, var(--red)) 55%, #000);
+}
+.rc.nx { border-color: var(--red); box-shadow: 0 0 0 1px var(--red), 0 18px 40px -16px #ff2d2d88; }
+.rc .rn { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; font-family: "Sora", sans-serif; font-weight: 800; }
+.hero { background: radial-gradient(500px 220px at 100% 0, color-mix(in srgb, var(--tc, var(--red)) 30%, transparent), transparent), var(--card); }
+.next { background: linear-gradient(120deg, #ff2d2d22, transparent 60%), var(--card); }
+.next .cd b { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.bar, .bar2 i { border-radius: 99px; }
+.bar2 { border-radius: 99px; overflow: hidden; background: var(--card2); }
+.bar2 i { background: var(--grad); }
+/* podio */
+.pc { border-radius: 22px; border: 1px solid var(--line); box-shadow: var(--sh); backdrop-filter: blur(6px); }
+.pc.s1 { background: linear-gradient(180deg, #ffd23f2e, var(--card) 70%); border-color: #ffd23f77; box-shadow: 0 20px 50px -20px #ffd23f88; }
+.pc.s2 { background: linear-gradient(180deg, #cfd6e22a, var(--card) 70%); }
+.pc.s3 { background: linear-gradient(180deg, #cd7f3226, var(--card) 70%); }
+/* tabelle */
+.tw { overflow: auto; padding: 0; }
+table { border-collapse: separate; border-spacing: 0; width: 100%; }
+th { position: sticky; top: 0; background: var(--card2); color: var(--mut); font: 600 11px "Inter", sans-serif; text-transform: uppercase; letter-spacing: .08em; padding: 12px 12px; cursor: pointer; }
+td { padding: 11px 12px; border-top: 1px solid var(--line); }
+tbody tr { transition: background .15s; }
+tbody tr:hover { background: color-mix(in srgb, var(--red) 8%, transparent); }
+tbody tr:nth-child(even) { background: color-mix(in srgb, var(--card2) 35%, transparent); }
+.pb { border-radius: 10px; font-family: "Sora", sans-serif; font-weight: 700; }
+/* tab, select, chip, bottoni */
+.tabs a { border-radius: 999px; background: var(--card); border: 1px solid var(--line); transition: .2s; }
+.tabs a:hover { border-color: var(--red); }
+.tabs a.on { background: var(--grad); border-color: transparent; color: #fff; box-shadow: 0 8px 20px -8px #ff2d2d99; }
+.ssb, .chip, .nv a { border-radius: 14px; background: var(--card); border: 1px solid var(--line); }
+.nv a:hover, .ssb:hover { border-color: var(--red); }
+.ssp { border-radius: 16px; box-shadow: 0 24px 60px -20px #000d; backdrop-filter: blur(16px); }
+/* loghi e avatar */
+.ti { filter: drop-shadow(0 4px 8px #0006); }
+.av .ph { border: 2px solid var(--card2); }
+.flag { border-radius: 3px; box-shadow: 0 0 0 1px #0003; }
+/* animazione ingresso */
+main > *, #app > * { animation: up .45s cubic-bezier(.2,.8,.2,1) both; }
+.grid > * { animation: up .5s cubic-bezier(.2,.8,.2,1) both; }
+.grid > *:nth-child(2) { animation-delay: .04s } .grid > *:nth-child(3) { animation-delay: .08s }
+.grid > *:nth-child(4) { animation-delay: .12s } .grid > *:nth-child(n+5) { animation-delay: .16s }
+@keyframes up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+::-webkit-scrollbar { height: 8px; width: 8px; } ::-webkit-scrollbar-thumb { background: var(--line); border-radius: 8px; }
+footer { color: var(--mut); border-top: 1px solid var(--line); }
+
+/* ===== Extra: effetti avanzati ===== */
+html::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(40vmax 40vmax at 15% 20%, #ff2d2d14, transparent 60%),
+    radial-gradient(35vmax 35vmax at 85% 70%, #ff7a1810, transparent 60%);
+  animation: orb 18s ease-in-out infinite alternate; }
+@keyframes orb { to { transform: translate3d(-3%, 4%, 0) scale(1.08); } }
+::selection { background: #ff2d2d66; }
+#sp { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 50; background: var(--grad); transform: scaleX(0); transform-origin: 0 50%; pointer-events: none; }
+/* bagliore che segue il mouse sulle card */
+.card, .rc, .tc, .dc2, .trw, .next {
+  background:
+    radial-gradient(280px circle at var(--mx, -400px) var(--my, -400px), color-mix(in srgb, var(--tc, #ff2d2d) 22%, transparent), transparent 65%),
+    linear-gradient(180deg, color-mix(in srgb, var(--card) 92%, #fff 8%), var(--card));
+}
+/* striscia colore squadra a sinistra */
+.card[style*="--tc"], .tc, .dc2[style*="--tc"], .win { position: relative; overflow: hidden; }
+.card[style*="--tc"]:after, .tc:after, .dc2[style*="--tc"]:after {
+  content: ""; position: absolute; left: 0; top: 14%; bottom: 14%; width: 4px; border-radius: 0 4px 4px 0;
+  background: var(--tc); box-shadow: 0 0 18px var(--tc); pointer-events: none;
+}
+/* prossima gara: bordo animato e pulsazione */
+.rc.nx { animation: glow 2.6s ease-in-out infinite; }
+@keyframes glow { 50% { box-shadow: 0 0 0 1px var(--red), 0 0 34px -4px #ff2d2daa; } }
+.pc.s1 { animation: gold 3.5s ease-in-out infinite; }
+@keyframes gold { 50% { box-shadow: 0 24px 60px -16px #ffd23fcc; } }
+/* titoli e numeri grandi */
+.dc2 .big, .stats b { font-family: "Sora", sans-serif; font-weight: 800; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.stats div { text-align: center; position: relative; overflow: hidden; }
+.stats div:before { content: ""; position: absolute; inset: auto 20% 0; height: 2px; background: var(--grad); opacity: .7; border-radius: 2px; }
+/* campione */
+.champ { background: linear-gradient(110deg, #ffd23f33, #ff2d2d1f 55%, transparent), var(--card); border-color: #ffd23f88; }
+.pill, .tag, u.tag { border-radius: 999px; }
+/* chip e link riga */
+.chip { transition: .2s; } .chip:hover { transform: translateY(-2px); border-color: var(--red); }
+.tn:hover, .dn:hover { color: var(--red); }
+/* caricamento: pista che scorre */
+.ld { color: var(--mut); text-align: center; padding: 60px 0; }
+.ld i { display: block; margin: 0 auto 14px; width: 220px; height: 4px; border-radius: 4px; background: linear-gradient(90deg, transparent, #ff2d2d, #ff7a18, transparent); background-size: 200% 100%; animation: run 1s linear infinite; }
+@keyframes run { to { background-position: -200% 0; } }
+/* intro */
+.intro { background: radial-gradient(600px 400px at 50% 40%, #ff2d2d33, transparent 70%), #07080d !important; }
+.intro h2 b { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+/* mobile */
+@media (max-width: 720px) {
+  :root { --r: 16px; }
+  h2 { font-size: 1.25rem; }
+  header { gap: 8px; }
+  td, th { padding: 9px 8px; }
+  .pc { border-radius: 18px; }
+}

@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#0b0c10" />
+    <title>MotoGP 2026 · Dashboard</title>
+    <link
+      id="fav"
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🏍️%3C/text%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,700;1,800&family=Barlow+Semi+Condensed:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css?v=13" />
+    <link rel="stylesheet" href="css/intro.css?v=13" />
+    <script>
+      // Tema applicato subito (evita il lampo) + intro a ogni ingresso nel sito
+      (function () {
+        var r = document.documentElement;
+        try {
+          var T = localStorage.getItem("mgp_theme");
+          if (T) r.dataset.theme = T;
+        } catch (e) {}
+        r.classList.add("intro-on");
+        addEventListener("pageshow", function (e) {
+          if (e.persisted) location.reload();
+        });
+      })();
+    </script>
+  </head>
+  <body>
+    <!-- INTRO SPLASH (a ogni ingresso / refresh) -->
+    <div class="intro" id="intro" aria-hidden="true">
+      <i class="sp"></i><i class="sp"></i><i class="sp"></i><i class="sp"></i>
+      <div class="mk" id="im">
+        <svg class="ring" viewBox="0 0 164 164">
+          <circle class="track" cx="82" cy="82" r="73" />
+          <circle class="arc" cx="82" cy="82" r="73" />
+        </svg>
+        <img class="lg" id="il" alt="" />
+        <svg class="fb" viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#e10600" />
+          <path d="M0 46h64v4H0z" fill="#fff" opacity=".9" />
+          <path d="M0 52h64v12H0z" fill="#15171c" />
+          <path
+            d="M0 52h8v6H0zM16 52h8v6h-8zM32 52h8v6h-8zM48 52h8v6h-8zM8 58h8v6H8zM24 58h8v6h-8zM40 58h8v6h-8zM56 58h8v6h-8z"
+            fill="#fff"
+          />
+          <text
+            x="32"
+            y="40"
+            text-anchor="middle"
+            font-family="Barlow Condensed, Impact, sans-serif"
+            font-style="italic"
+            font-weight="800"
+            font-size="34"
+            fill="#fff"
+          >
+            GP
+          </text>
+        </svg>
+      </div>
+      <h2>MotoGP<b>2026</b></h2>
+      <p>Dashboard dati · Stagione 2026</p>
+      <div class="fl"></div>
+    </div>
+    <header>
+      <i id="nb"></i>
+      <a
+        class="logo"
+        id="lg"
+        href="#/"
+        title="MotoGP · Stagione 2026"
+        aria-label="MotoGP 2026"
+        ><span class="lm"
+          ><img id="f1l" class="f1lg" alt="MotoGP" hidden />
+          <svg class="f1fb" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#e10600" />
+            <path d="M0 46h64v4H0z" fill="#fff" opacity=".9" />
+            <path d="M0 52h64v12H0z" fill="#15171c" />
+            <path
+              d="M0 52h8v6H0zM16 52h8v6h-8zM32 52h8v6h-8zM48 52h8v6h-8zM8 58h8v6H8zM24 58h8v6h-8zM40 58h8v6h-8zM56 58h8v6h-8z"
+              fill="#fff"
+            />
+            <text
+              x="32"
+              y="40"
+              text-anchor="middle"
+              font-family="Barlow Condensed, Impact, sans-serif"
+              font-style="italic"
+              font-weight="800"
+              font-size="34"
+              fill="#fff"
+            >
+              GP
+            </text>
+          </svg></span
+        ><b>2026</b></a
+      >
+      <div class="sb">
+        <input
+          id="q"
+          type="search"
+          placeholder="Cerca piloti, squadre, gare…  ( / )"
+          autocomplete="off"
+          aria-label="Cerca"
+        />
+        <div id="sr" hidden></div>
+      </div>
+      <button id="th" title="Tema chiaro/scuro">◐</button>
+      <button id="rf" title="Ricarica i dati">↻</button>
+      <nav>
+        <a href="#/">Calendario</a><a href="#/drivers">Piloti</a
+        ><a href="#/teams">Squadre</a><a href="#/makes">Costruttori</a><a href="#/race">Gara</a>
+      </nav>
+    </header>
+    <main id="app"></main>
+    <footer>
+      Dati: API ufficiale MotoGP (motogp.com) · foto Wikipedia · loghi squadre dalle API ufficiali (marchi dei rispettivi proprietari), con emblemi stilizzati di riserva
+    </footer>
+    <script src="js/api.js?v=13"></script>
+    <script src="js/utils.js?v=13"></script>
+    <script src="js/components/ui.js?v=13"></script>
+    <script src="js/data.js?v=13"></script>
+    <script src="js/components/calendar.js?v=13"></script>
+    <script src="js/components/standings.js?v=13"></script>
+    <script src="js/components/driver.js?v=13"></script>
+    <script src="js/components/race.js?v=13"></script>
+    <script src="js/components/search.js?v=13"></script>
+    <script src="js/router.js?v=13"></script>
+    <script src="js/intro.js?v=13"></script>
+    <script>
+      // Logo MotoGP (header, intro, favicon): prima img/motogp-logo.svg (se lo aggiungi), altrimenti emblema stilizzato.
+      // Se nessuno si carica restano gli emblemi stilizzati inline.
+      (function () {
+        var L = ["img/motogp-logo.svg"];
+        (function t(i) {
+          if (i >= L.length) return;
+          var m = new Image();
+          m.onload = function () {
+            document.getElementById("fav").href = L[i];
+            var h = document.getElementById("f1l"),
+              g = document.getElementById("il");
+            h.src = L[i];
+            h.hidden = false;
+            g.src = L[i];
+            document.getElementById("lg").classList.add("hasimg");
+            var im = document.getElementById("im");
+            if (im) im.classList.add("hasimg");
+          };
+          m.onerror = function () {
+            t(i + 1);
+          };
+          m.src = L[i];
+        })(0);
+      })();
+    </script>
+  </body>
+</html>

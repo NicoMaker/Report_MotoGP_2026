@@ -1,0 +1,2708 @@
+:root {
+  --bg: #0b0c10;
+  --fg: #f4f2ee;
+  --mut: #8f8d89;
+  --card: #15171c;
+  --card2: #1d2027;
+  --line: #262a33;
+  --red: #e10600;
+  --pur: #c77dff;
+  --glass: #0b0c10d9;
+  --r: 16px;
+}
+:root[data-theme="light"] {
+  --bg: #f4f3f0;
+  --fg: #15171c;
+  --mut: #6c6a66;
+  --card: #fff;
+  --card2: #eeedea;
+  --line: #dcdad5;
+  --glass: #f4f3f0e6;
+}
+* {
+  box-sizing: border-box;
+}
+[hidden] {
+  display: none !important;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  color: var(--fg);
+  min-height: 100vh;
+  background:
+    radial-gradient(900px 320px at 85% -100px, #e1060033, transparent) no-repeat,
+    var(--bg);
+  font:
+    15px/1.45 "Barlow Semi Condensed",
+    "Segoe UI",
+    system-ui,
+    sans-serif;
+}
+a {
+  color: inherit;
+}
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  padding-top: max(10px, env(safe-area-inset-top));
+  background: var(--glass);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+header:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 90px;
+  height: 3px;
+  background: var(--red);
+}
+.logo {
+  font:
+    italic 800 26px "Barlow Condensed",
+    Impact,
+    sans-serif;
+  text-decoration: none;
+}
+.logo b {
+  color: var(--red);
+  margin-left: 2px;
+}
+nav {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  order: 2;
+  flex: none;
+  scrollbar-width: none;
+}
+nav a {
+  padding: 6px 12px;
+  border-radius: 20px;
+  color: var(--mut);
+  text-decoration: none;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: 0.15s;
+}
+nav a:hover {
+  color: var(--fg);
+}
+nav a.on {
+  background: var(--red);
+  color: #fff;
+}
+.sb {
+  position: relative;
+  flex: 1;
+  order: 3;
+  min-width: 0;
+}
+.sb input,
+.tf {
+  width: 100%;
+  font: inherit;
+  color: var(--fg);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 14px;
+  outline: none;
+  transition: 0.15s;
+}
+.sb input:focus,
+.tf:focus,
+select:focus {
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px #e1060033;
+}
+.tf {
+  border-radius: 12px;
+  margin: 0 0 10px;
+  max-width: 420px;
+  display: block;
+}
+#sr {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 8px);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px #0008;
+  min-width: min(360px, 90vw);
+}
+#sr a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+}
+#sr a:hover {
+  background: var(--card2);
+}
+#sr small {
+  color: var(--mut);
+  margin-left: auto;
+}
+#sr .all {
+  justify-content: center;
+  color: var(--red);
+  font-weight: 600;
+}
+#sr p {
+  margin: 0;
+  padding: 12px;
+}
+button {
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--fg);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 16px;
+  cursor: pointer;
+  order: 4;
+  flex: none;
+  transition: 0.15s;
+}
+button:hover {
+  border-color: var(--red);
+}
+main {
+  max-width: 1000px;
+  margin: auto;
+  padding: 16px;
+  padding-bottom: max(30px, env(safe-area-inset-bottom));
+  animation: in 0.3s;
+}
+@keyframes in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+h2 {
+  font:
+    italic 800 32px/1 "Barlow Condensed",
+    Impact,
+    sans-serif;
+  margin: 8px 0 14px;
+}
+h3 {
+  margin: 6px 0;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+}
+.card {
+  display: block;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--red);
+  border-radius: var(--r);
+  padding: 14px;
+  text-decoration: none;
+  transition:
+    transform 0.15s,
+    background 0.15s,
+    box-shadow 0.15s;
+}
+.card:hover {
+  transform: translateY(-3px);
+  background: var(--card2);
+  box-shadow: 0 10px 24px #0004;
+}
+.card h3 {
+  margin: 2px 0;
+  font-size: 19px;
+}
+.card small,
+.card p {
+  color: var(--mut);
+  margin: 0;
+}
+.w {
+  margin-top: 10px;
+  font-weight: 600;
+}
+.w span,
+.soon {
+  color: var(--mut);
+  font-weight: 400;
+}
+.next {
+  display: block;
+  text-decoration: none;
+  margin-bottom: 16px;
+  padding: 18px;
+  border-radius: 18px;
+  color: #fff;
+  background: linear-gradient(120deg, var(--red), #7a0300);
+  box-shadow: 0 8px 30px #e1060040;
+}
+.next h3 {
+  font:
+    italic 800 30px/1 "Barlow Condensed",
+    Impact,
+    sans-serif;
+  margin: 6px 0;
+}
+.next small,
+.next p {
+  opacity: 0.85;
+  margin: 0;
+}
+
+/* PODIO: 2° | 1° (centro, più alto) | 3° */
+.podium {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr 1fr;
+  gap: 10px;
+  align-items: end;
+  margin: 0 0 20px;
+}
+.pc {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: center;
+  gap: 3px;
+  padding: 16px 8px 14px;
+  border-radius: var(--r) var(--r) 6px 6px;
+  text-decoration: none;
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--tc) 38%, var(--card)),
+    var(--card) 85%
+  );
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--tc);
+  transition: transform 0.2s;
+}
+.pc:hover {
+  transform: translateY(-3px);
+}
+.pc.s1 {
+  min-height: 250px;
+  box-shadow: 0 10px 36px color-mix(in srgb, var(--tc) 35%, transparent);
+}
+.pc.s2 {
+  min-height: 205px;
+}
+.pc.s3 {
+  min-height: 175px;
+}
+.pc .ph {
+  width: 76px;
+  height: 76px;
+  font-size: 16px;
+  border: 3px solid var(--tc);
+}
+.pc.s1 .ph {
+  width: 104px;
+  height: 104px;
+  border-color: #f5c518;
+}
+.cr {
+  position: absolute;
+  top: 8px;
+  font-size: 26px;
+  text-decoration: none;
+}
+.pc small {
+  font:
+    italic 800 24px "Barlow Condensed",
+    sans-serif;
+}
+.s1 small {
+  color: #f5c518;
+  font-size: 30px;
+}
+.s2 small {
+  color: #c0c4c9;
+}
+.s3 small {
+  color: #cd7f32;
+}
+.pc b {
+  font-size: 17px;
+  overflow-wrap: anywhere;
+}
+.pc .ps {
+  color: var(--mut);
+  font-size: 12px;
+}
+.pc em {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.tw {
+  overflow-x: auto;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  margin-bottom: 4px;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  white-space: nowrap;
+}
+th {
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--mut);
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--line);
+  cursor: pointer;
+  user-select: none;
+  position: sticky;
+  top: 0;
+  background: var(--card);
+}
+th:hover {
+  color: var(--fg);
+}
+th[data-d="1"]:after {
+  content: " ▲";
+  color: var(--red);
+}
+th[data-d="-1"]:after {
+  content: " ▼";
+  color: var(--red);
+}
+td {
+  padding: 7px 8px;
+  border-bottom: 1px solid var(--line);
+}
+tr:last-child td {
+  border: 0;
+}
+tbody tr:hover {
+  background: var(--card2);
+}
+td:first-child {
+  font:
+    italic 800 17px "Barlow Condensed",
+    sans-serif;
+}
+tr.p1 td:first-child {
+  box-shadow: inset 4px 0 #f5c518;
+}
+tr.p2 td:first-child {
+  box-shadow: inset 4px 0 #c0c4c9;
+}
+tr.p3 td:first-child {
+  box-shadow: inset 4px 0 #cd7f32;
+}
+.dn,
+.tn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+.dn:hover b,
+.tn:hover {
+  color: var(--red);
+}
+td .dn {
+  display: flex;
+}
+.ph {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+  background: var(--card2);
+  display: inline-grid;
+  place-items: center;
+  font: 700 10px sans-serif;
+  font-style: normal;
+  flex: none;
+}
+.bd {
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  display: inline-grid;
+  place-items: center;
+  color: #fff;
+  font: 800 11px sans-serif;
+  font-style: normal;
+  text-shadow: 0 0 3px #0008;
+  flex: none;
+}
+.bar {
+  height: 4px;
+  border-radius: 2px;
+  margin-top: 3px;
+}
+.tabs {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  margin: 12px 0;
+  scrollbar-width: none;
+}
+.tabs a {
+  padding: 7px 14px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  border-radius: 20px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.tabs a.on {
+  background: var(--fg);
+  color: var(--bg);
+  font-weight: 600;
+}
+select {
+  font: inherit;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--fg);
+  max-width: 100%;
+  outline: none;
+}
+.fl {
+  color: var(--pur);
+  font-weight: 700;
+}
+.mut {
+  color: var(--mut);
+}
+.err {
+  color: #ff6b63;
+  font-weight: 600;
+}
+.two {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 14px;
+}
+.hero {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 14px;
+  padding: 16px;
+  border-radius: 18px;
+  background: var(--card);
+  border: 1px solid var(--line);
+}
+.hero .ph {
+  width: 92px;
+  height: 92px;
+  font-size: 22px;
+  border: 3px solid var(--red);
+}
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.stats div {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 10px;
+  text-align: center;
+}
+.stats b {
+  display: block;
+  font:
+    italic 800 26px "Barlow Condensed",
+    sans-serif;
+}
+.stats small {
+  color: var(--mut);
+}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px 12px 4px 4px;
+}
+.chip em {
+  font-style: normal;
+  color: var(--mut);
+}
+
+@media (max-width: 640px) {
+  header {
+    flex-wrap: wrap;
+    row-gap: 8px;
+  }
+  .sb {
+    order: 2;
+  }
+  nav {
+    order: 5;
+    width: 100%;
+  }
+  button {
+    order: 3;
+  }
+  .logo {
+    font-size: 22px;
+  }
+}
+@media (max-width: 520px) {
+  main {
+    padding: 12px;
+  }
+  h2 {
+    font-size: 27px;
+  }
+  .podium {
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+  .pc {
+    padding: 10px 4px;
+    border-radius: 12px 12px 4px 4px;
+    gap: 1px;
+  }
+  .pc.s1 {
+    min-height: 172px;
+  }
+  .pc.s2 {
+    min-height: 144px;
+  }
+  .pc.s3 {
+    min-height: 126px;
+  }
+  .pc .ph {
+    width: 44px;
+    height: 44px;
+    font-size: 11px;
+    border-width: 2px;
+  }
+  .pc.s1 .ph {
+    width: 60px;
+    height: 60px;
+  }
+  .pc b {
+    font-size: 13px;
+  }
+  .pc .ps {
+    display: none;
+  }
+  .pc em {
+    font-size: 12px;
+  }
+  .pc small {
+    font-size: 18px;
+  }
+  .s1 small {
+    font-size: 22px;
+  }
+  .cr {
+    font-size: 18px;
+    top: 4px;
+  }
+  .hero .ph {
+    width: 64px;
+    height: 64px;
+  }
+  .stats b {
+    font-size: 22px;
+  }
+}
+
+/* Emblemi squadra (SVG inline) */
+.ti {
+  --s: 40px;
+  width: var(--s);
+  height: var(--s);
+  display: inline-block;
+  position: relative;
+  flex: none;
+  vertical-align: middle;
+  line-height: 0;
+}
+.ti svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+  filter: drop-shadow(0 1px 2px #0006);
+}
+.ti img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 2;
+  background: #fff;
+  border-radius: 22%;
+  padding: 7%;
+}
+.ti.im svg {
+  display: none;
+}
+.pc .ti {
+  --s: 76px;
+}
+.pc.s1 .ti {
+  --s: 104px;
+  filter: drop-shadow(0 6px 14px #0006);
+}
+.wall {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding: 6px 2px 14px;
+  margin-bottom: 8px;
+  scrollbar-width: none;
+}
+.wall a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  min-width: 78px;
+  transition: transform 0.2s;
+}
+.wall a:hover {
+  transform: translateY(-4px) scale(1.05);
+}
+.wall small {
+  color: var(--mut);
+  font-size: 12px;
+  text-align: center;
+}
+.tg {
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+.tc {
+  background: linear-gradient(
+    160deg,
+    color-mix(in srgb, var(--tc) 22%, var(--card)),
+    var(--card) 60%
+  );
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--tc);
+  border-radius: var(--r);
+  padding: 14px;
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s;
+}
+.tc:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px #0005;
+}
+.tch {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+.tch .tt {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.tch b {
+  font-size: 19px;
+}
+.tch small {
+  color: var(--mut);
+}
+.tch i {
+  font:
+    italic 800 30px "Barlow Condensed",
+    sans-serif;
+  color: var(--tc);
+}
+.tcs {
+  display: flex;
+  gap: 16px;
+  margin: 10px 0 2px;
+  color: var(--mut);
+}
+.tcs b {
+  color: var(--fg);
+  font-size: 18px;
+}
+.tcd {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+.tcd em {
+  font-style: normal;
+  color: var(--mut);
+}
+.hero.th {
+  background: linear-gradient(
+    120deg,
+    color-mix(in srgb, var(--tc) 40%, var(--card)),
+    var(--card) 75%
+  );
+  border-top: 4px solid var(--tc);
+}
+.w .ti {
+  --s: 20px;
+  margin: 0 2px 0 6px;
+}
+.w .ti text {
+  display: none;
+}
+@media (max-width: 520px) {
+  .pc .ti {
+    --s: 46px;
+  }
+  .pc.s1 .ti {
+    --s: 62px;
+  }
+  .tg {
+    grid-template-columns: 1fr;
+  }
+  .hero.th .ti {
+    --s: 70px;
+  }
+}
+
+/* ===== Polish generale ===== */
+::selection {
+  background: var(--red);
+  color: #fff;
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}
+h2:before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 0.8em;
+  background: var(--red);
+  border-radius: 3px;
+  margin-right: 10px;
+  transform: skewX(-14deg);
+  vertical-align: -0.05em;
+}
+.hero h2:before,
+.pc h2:before {
+  display: none;
+}
+.sec {
+  margin: 18px 0 8px;
+  color: var(--mut);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+footer {
+  text-align: center;
+  color: var(--mut);
+  font-size: 12px;
+  padding: 10px 14px 30px;
+}
+.ld {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--mut);
+  padding: 40px 0;
+  justify-content: center;
+}
+.ld i {
+  width: 22px;
+  height: 22px;
+  border: 3px solid var(--line);
+  border-top-color: var(--red);
+  border-radius: 50%;
+  animation: sp 0.8s linear infinite;
+}
+@keyframes sp {
+  to {
+    transform: rotate(360deg);
+  }
+}
+tbody tr:nth-child(even) {
+  background: color-mix(in srgb, var(--card2) 35%, transparent);
+}
+.pill {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 2px 10px;
+  border-radius: 99px;
+  background: var(--red);
+  color: #fff;
+  font-size: 13px;
+}
+.fg {
+  font-size: 30px;
+  line-height: 1;
+}
+.fg.big {
+  font-size: 56px;
+}
+
+/* Dashboard + calendario */
+.dash {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.dc2 {
+  display: block;
+  text-decoration: none;
+  padding: 14px;
+  border-radius: 18px;
+  background: linear-gradient(
+    150deg,
+    color-mix(in srgb, var(--tc, var(--red)) 24%, var(--card)),
+    var(--card) 70%
+  );
+  border: 1px solid var(--line);
+  transition: transform 0.15s;
+}
+a.dc2:hover {
+  transform: translateY(-3px);
+}
+.dc2 > small {
+  color: var(--mut);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 11px;
+}
+.dc2 .dn {
+  margin-top: 8px;
+}
+.dc2 .dn small {
+  color: var(--mut);
+}
+.big {
+  display: block;
+  font:
+    italic 800 44px/1 "Barlow Condensed",
+    sans-serif;
+  margin: 4px 0 8px;
+}
+.big span {
+  color: var(--mut);
+  font-size: 26px;
+}
+.bar2 {
+  height: 6px;
+  background: var(--line);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+.bar2 i {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--red), #ff6a4d);
+  border-radius: 3px;
+}
+.next {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.next > div:nth-child(2) {
+  flex: 1;
+}
+.next .fg {
+  font-size: 44px;
+}
+.cd {
+  text-align: center;
+  background: #0003;
+  border-radius: 14px;
+  padding: 8px 16px;
+}
+.cd b {
+  display: block;
+  font:
+    italic 800 36px/1 "Barlow Condensed",
+    sans-serif;
+}
+.rg {
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+.rc {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  text-decoration: none;
+  padding: 14px;
+  border-radius: 18px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s,
+    border-color 0.15s;
+}
+.rc:hover {
+  transform: translateY(-4px);
+  border-color: var(--red);
+  box-shadow: 0 14px 30px #0005;
+}
+.rc.nx {
+  border-color: var(--red);
+  box-shadow: 0 0 0 1px var(--red) inset;
+}
+.rn {
+  position: absolute;
+  right: 8px;
+  top: -6px;
+  font:
+    italic 800 76px/1 "Barlow Condensed",
+    sans-serif;
+  color: var(--fg);
+  opacity: 0.06;
+}
+.rt {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.rt small,
+.rc p {
+  color: var(--mut);
+  margin: 0;
+}
+.rt u {
+  text-decoration: none;
+  color: var(--pur);
+  font-weight: 700;
+}
+.rc h3 {
+  font-size: 19px;
+  margin: 8px 0 2px;
+}
+.mp {
+  display: flex;
+  gap: 6px;
+  margin-top: 12px;
+}
+.mp > span {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 13px;
+  background: color-mix(in srgb, var(--tc) 22%, var(--card2));
+  border-left: 3px solid var(--tc);
+}
+.mp i {
+  font:
+    italic 800 14px "Barlow Condensed",
+    sans-serif;
+  color: var(--mut);
+}
+
+/* Pagina pilota / gara */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+.hero > * {
+  position: relative;
+}
+.dh {
+  background: linear-gradient(
+    120deg,
+    color-mix(in srgb, var(--tc) 38%, var(--card)),
+    var(--card) 75%
+  );
+  border-top: 4px solid var(--tc);
+}
+.dh .ph {
+  border-color: var(--tc);
+}
+/* Numero del pilota nell'header: nitido (contorno + riempimento) e a sinistra delle frecce ‹ › */
+.dh .wm {
+  right: 104px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 128px;
+  opacity: 1;
+  color: color-mix(in srgb, var(--tc) 32%, transparent);
+  -webkit-text-stroke: 2px var(--tc);
+  paint-order: stroke fill;
+  text-shadow: 0 2px 18px color-mix(in srgb, var(--tc) 45%, transparent);
+  z-index: 0;
+}
+@media (max-width: 520px) {
+  .dh .wm {
+    right: 10px;
+    top: auto;
+    bottom: 4px;
+    transform: none;
+    font-size: 58px;
+    -webkit-text-stroke-width: 1.5px;
+  }
+}
+.wm {
+  position: absolute !important;
+  right: 14px;
+  top: -4px;
+  font:
+    italic 800 90px/1 "Barlow Condensed",
+    sans-serif;
+  opacity: 0.1;
+  pointer-events: none;
+}
+.dcd {
+  position: relative;
+  overflow: hidden;
+  border-left-color: var(--tc);
+  background: linear-gradient(
+    120deg,
+    color-mix(in srgb, var(--tc) 14%, var(--card)),
+    var(--card) 70%
+  );
+}
+.dcd .wm {
+  font-size: 60px;
+  right: 8px;
+  top: 0;
+}
+.spark {
+  display: flex;
+  align-items: stretch;
+  gap: 6px;
+  padding: 12px 10px 10px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  margin-bottom: 6px;
+  overflow-x: auto;
+}
+.spark a.sc {
+  flex: 1;
+  min-width: 46px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 2px 6px;
+  border-radius: 10px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: background 0.15s;
+}
+.spark a.sc:hover {
+  background: var(--card2);
+}
+/* Pole position: viola, così non si confonde con l'oro della vittoria */
+.spark a.sc.pole {
+  border-color: #a855f777;
+  background: linear-gradient(180deg, #a855f726, transparent 70%);
+}
+/* Pole + podio nella stessa gara: vince il colore del piazzamento */
+.spark a.sc.pole.pd1 {
+  border-color: #f5c51888;
+  background: linear-gradient(180deg, #f5c51826, transparent 70%);
+}
+.spark a.sc.pole.pd2 {
+  border-color: #d3d7dd88;
+  background: linear-gradient(180deg, #d3d7dd26, transparent 70%);
+}
+.spark a.sc.pole.pd3 {
+  border-color: #d98b3f88;
+  background: linear-gradient(180deg, #d98b3f26, transparent 70%);
+}
+.spark .spm {
+  height: 18px;
+  font-size: 15px;
+  line-height: 18px;
+}
+.spark .spv {
+  height: 16px;
+  font:
+    italic 800 15px/16px "Barlow Condensed",
+    sans-serif;
+  color: var(--fg);
+}
+.spark .spb {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  height: 84px;
+}
+.spark .spb i {
+  display: block;
+  width: 100%;
+  background: var(--tc);
+  border-radius: 4px 4px 0 0;
+  transition: filter 0.15s;
+}
+/* Barre del podio: 1° oro, 2° argento, 3° bronzo (le altre restano del colore squadra) */
+.spark .spb i.g {
+  background: linear-gradient(180deg, #ffe27a, #e0a800);
+  box-shadow: 0 -3px 14px #f5c51888;
+}
+.spark .spb i.s {
+  background: linear-gradient(180deg, #f6f7f9, #aab0b8);
+  box-shadow: 0 -3px 14px #d3d7dd77;
+}
+.spark .spb i.b {
+  background: linear-gradient(180deg, #f0b27a, #b86a25);
+  box-shadow: 0 -3px 14px #d98b3f77;
+}
+.spark .spb i.off {
+  background: var(--line);
+}
+.spark a:hover .spb i {
+  filter: brightness(1.3);
+}
+.spark small {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--mut);
+}
+.spark .pb {
+  min-width: 34px;
+  height: 28px;
+  font-size: 16px;
+}
+.spark .spg {
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--mut);
+  height: 14px;
+  line-height: 14px;
+}
+.spark .spp {
+  text-decoration: none;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--mut);
+  padding: 3px 5px;
+  border-radius: 99px;
+  white-space: nowrap;
+}
+.spark .spp.on {
+  background: linear-gradient(135deg, #b672ff, #7c3aed);
+  color: #fff;
+  box-shadow: 0 0 10px #a855f788;
+}
+.spark a.off {
+  opacity: 0.55;
+}
+.sl {
+  font-size: 12px;
+  margin: 0 0 14px;
+}
+.sl b {
+  color: var(--fg);
+}
+.rh {
+  background: linear-gradient(120deg, #e1060030, var(--card) 70%);
+}
+.rh > div:nth-child(2) {
+  flex: 1;
+  min-width: 0;
+}
+.nv {
+  display: flex;
+  gap: 6px;
+}
+.nv a {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--card2);
+  text-decoration: none;
+  font-size: 22px;
+  transition: 0.15s;
+}
+.nv a:hover {
+  background: var(--red);
+  color: #fff;
+}
+@media (max-width: 520px) {
+  .fg.big {
+    font-size: 40px;
+  }
+  .next .fg {
+    font-size: 34px;
+  }
+  .wm {
+    font-size: 64px;
+  }
+  .rh {
+    flex-wrap: wrap;
+  }
+}
+
+/* 1°/2°/3° + pole */
+.tl {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--mut);
+}
+.tl b {
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--fg);
+}
+.pc .tl {
+  justify-content: center;
+  margin-top: 6px;
+  gap: 2px 8px;
+  font-size: 12px;
+}
+.stats {
+  grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
+}
+th {
+  font-size: 12px;
+}
+@media (max-width: 520px) {
+  .pc .tl {
+    font-size: 10px;
+    gap: 1px 5px;
+  }
+  .stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Foto pilota + logo squadra, badge posizione, risultati squadra */
+.av {
+  position: relative;
+  display: inline-flex;
+  flex: none;
+}
+.av .ti {
+  --s: 16px;
+  position: absolute;
+  right: -5px;
+  bottom: -4px;
+}
+.av .ti text {
+  display: none;
+}
+.hero .av .ti {
+  --s: 30px;
+}
+.pc .av .ti {
+  --s: 24px;
+}
+.pc.s1 .av .ti {
+  --s: 32px;
+  filter: none;
+}
+.dc2 .av .ti {
+  --s: 20px;
+}
+#sr .av .ti {
+  --s: 14px;
+}
+.pb {
+  display: inline-grid;
+  place-items: center;
+  min-width: 30px;
+  height: 30px;
+  padding: 0 6px;
+  border-radius: 10px;
+  font:
+    italic 800 17px "Barlow Condensed",
+    sans-serif;
+  background: var(--card2);
+  color: var(--mut);
+}
+.pb.g {
+  background: linear-gradient(135deg, #ffe27a, #e0a800);
+  color: #3a2b00;
+  box-shadow: 0 0 14px #f5c51855;
+}
+.pb.s {
+  background: linear-gradient(135deg, #f2f4f7, #aab0b8);
+  color: #23262b;
+}
+.pb.b {
+  background: linear-gradient(135deg, #e9a56a, #a85f1f);
+  color: #2c1600;
+}
+.pb.p {
+  background: #1f8f5a33;
+  color: #3ddc97;
+}
+.pb.n {
+  background: var(--card2);
+}
+.pb.x {
+  background: #e1060026;
+  color: #ff6b63;
+}
+td:first-child .pb {
+  margin: -2px 0;
+}
+.trl {
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+.trw {
+  display: grid;
+  grid-template-columns: minmax(180px, 1.1fr) 2fr auto;
+  gap: 14px;
+  align-items: center;
+  padding: 12px 14px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--line);
+  border-radius: var(--r);
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s;
+}
+.trw:hover {
+  transform: translateX(3px);
+  box-shadow: 0 8px 24px #0004;
+}
+.trw.g {
+  border-left-color: #f5c518;
+  background: linear-gradient(90deg, #f5c51826, var(--card) 45%);
+}
+.trw.s {
+  border-left-color: #c0c4c9;
+  background: linear-gradient(90deg, #c0c4c91f, var(--card) 45%);
+}
+.trw.b {
+  border-left-color: #cd7f32;
+  background: linear-gradient(90deg, #cd7f321f, var(--card) 45%);
+}
+.trh {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.trh a {
+  text-decoration: none;
+}
+.trh a:hover b {
+  color: var(--red);
+}
+.trh small {
+  display: block;
+  color: var(--mut);
+}
+.tag {
+  display: inline-block;
+  margin-top: 3px;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  padding: 2px 8px;
+  border-radius: 99px;
+  background: #f5c518;
+  color: #3a2b00;
+}
+.trd {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.tdv {
+  flex: 1;
+  min-width: 190px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px 6px 6px;
+  border-radius: 14px;
+  background: var(--card2);
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: 0.15s;
+}
+.tdv:hover {
+  border-color: var(--red);
+}
+.tdv.p1 {
+  border-color: #f5c51877;
+}
+.tdv.p2 {
+  border-color: #c0c4c977;
+}
+.tdv.p3 {
+  border-color: #cd7f3277;
+}
+.tdv > span:nth-child(2) {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+.tdv small {
+  color: var(--mut);
+  font-size: 12px;
+}
+.tdv .pb {
+  height: 34px;
+  min-width: 38px;
+  font-size: 20px;
+}
+.trp {
+  text-align: center;
+}
+.trp b {
+  display: block;
+  font:
+    italic 800 30px/1 "Barlow Condensed",
+    sans-serif;
+}
+.trp small {
+  color: var(--mut);
+}
+.tw2 {
+  right: 10px !important;
+  top: 8px !important;
+  opacity: 0.14 !important;
+}
+@media (max-width: 760px) {
+  .trw {
+    grid-template-columns: 1fr auto;
+  }
+  .trd {
+    grid-column: 1 / -1;
+    order: 3;
+  }
+  .tdv {
+    min-width: 100%;
+  }
+}
+@media (max-width: 520px) {
+  .pc .av .ti {
+    --s: 18px;
+  }
+  .pc.s1 .av .ti {
+    --s: 22px;
+  }
+  .hero .av .ti {
+    --s: 24px;
+  }
+}
+
+/* Bandiere (immagini), vincitore nel calendario, fix riquadri leader */
+.flag {
+  display: inline-block;
+  height: 1em;
+  width: 1.5em;
+  object-fit: cover;
+  border-radius: 0.14em;
+  vertical-align: -0.14em;
+  box-shadow: 0 0 0 1px #0005;
+}
+.fg {
+  display: inline-flex;
+  align-items: center;
+}
+.dc2 {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.dc2 .dn {
+  display: flex;
+  margin: 0;
+}
+.win {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+  padding: 10px;
+  border-radius: 14px;
+  border-left: 4px solid #f5c518;
+  background: linear-gradient(
+    120deg,
+    color-mix(in srgb, var(--tc) 38%, var(--card2)),
+    var(--card2) 85%
+  );
+}
+.win .ph {
+  width: 52px;
+  height: 52px;
+  border: 2px solid var(--tc);
+}
+.win small {
+  display: block;
+  color: #f5c518;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  font-size: 11px;
+}
+.win b {
+  display: block;
+  font-size: 17px;
+  line-height: 1.15;
+}
+.win > div {
+  min-width: 0;
+}
+.wt {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--mut);
+}
+.mp {
+  margin-top: 8px;
+}
+.mp .m2 {
+  color: #c0c4c9;
+}
+.mp .m3 {
+  color: #cd7f32;
+}
+.mp i {
+  font-size: 15px;
+}
+@media (max-width: 520px) {
+  .pc.s1 {
+    padding-top: 28px;
+  }
+}
+
+/* Bandiera della nazionalità del pilota sull'avatar (in basso a sinistra, il logo squadra è a destra) */
+.av .fl {
+  position: absolute;
+  left: -5px;
+  bottom: -3px;
+  width: 22px;
+  height: 15px;
+  border-radius: 3px;
+  box-shadow:
+    0 0 0 1.5px var(--card),
+    0 1px 4px #0006;
+  object-fit: cover;
+  z-index: 3;
+}
+.hero .av .fl {
+  width: 34px;
+  height: 23px;
+  left: -6px;
+  bottom: -4px;
+}
+.pc .av .fl {
+  width: 30px;
+  height: 20px;
+}
+.pc.s1 .av .fl {
+  width: 38px;
+  height: 25px;
+}
+.dc2 .av .fl,
+.win .av .fl {
+  width: 20px;
+  height: 14px;
+}
+#sr .av .fl {
+  width: 16px;
+  height: 11px;
+  left: -4px;
+}
+.mp .flag {
+  height: 0.95em;
+  width: 1.4em;
+}
+
+/* PODIO: 2° e 3° ben evidenti (argento / bronzo, medaglia, numero gigante) */
+.pc {
+  --m: #f5c518;
+}
+.pc.s2 {
+  --m: #d3d7dd;
+}
+.pc.s3 {
+  --m: #d98b3f;
+}
+.pc.s1 {
+  min-height: 262px;
+  border-color: #f5c518aa;
+  border-top-color: #f5c518;
+}
+.pc.s2 {
+  min-height: 232px;
+  border-color: #d3d7dd99;
+  border-top: 6px solid #d3d7dd;
+  box-shadow: 0 10px 32px #d3d7dd38;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, #d3d7dd 28%, var(--card)),
+    color-mix(in srgb, var(--tc) 16%, var(--card)) 62%,
+    var(--card)
+  );
+}
+.pc.s3 {
+  min-height: 212px;
+  border-color: #d98b3f99;
+  border-top: 6px solid #d98b3f;
+  box-shadow: 0 10px 32px #d98b3f38;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, #d98b3f 30%, var(--card)),
+    color-mix(in srgb, var(--tc) 16%, var(--card)) 62%,
+    var(--card)
+  );
+}
+.pc.s1:before,
+.pc.s2:before,
+.pc.s3:before {
+  position: absolute;
+  right: 6px;
+  top: -14px;
+  font:
+    italic 800 130px/1 "Barlow Condensed",
+    sans-serif;
+  color: var(--m);
+  opacity: 0.16;
+  pointer-events: none;
+}
+.pc.s1:before {
+  content: "1";
+}
+.pc.s2:before {
+  content: "2";
+}
+.pc.s3:before {
+  content: "3";
+}
+.pc.s2 .ph,
+.pc.s3 .ph {
+  width: 88px;
+  height: 88px;
+  border-width: 4px;
+}
+.pc.s2 .ph {
+  border-color: #d3d7dd;
+}
+.pc.s3 .ph {
+  border-color: #d98b3f;
+}
+.pc.s2 small,
+.pc.s3 small {
+  font-size: 38px;
+  line-height: 1;
+  color: var(--m);
+  text-shadow: 0 0 20px color-mix(in srgb, var(--m) 70%, transparent);
+}
+.pc.s1 small {
+  font-size: 42px;
+  line-height: 1;
+  text-shadow: 0 0 22px #f5c51899;
+}
+.pc.s2 b,
+.pc.s3 b {
+  font-size: 20px;
+}
+.pc.s1 b {
+  font-size: 22px;
+}
+.pc em {
+  font-size: 15px;
+  background: color-mix(in srgb, var(--m) 24%, transparent);
+  padding: 1px 10px;
+  border-radius: 99px;
+}
+.mdl {
+  display: inline-block;
+  width: 0.8em;
+  height: 1em;
+  vertical-align: -0.15em;
+  flex: none;
+}
+.md {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  font-size: 32px;
+  line-height: 1;
+  text-decoration: none;
+  filter: drop-shadow(0 2px 6px #0008);
+}
+@media (max-width: 520px) {
+  .pc.s1 {
+    min-height: 184px;
+  }
+  .pc.s2 {
+    min-height: 158px;
+  }
+  .pc.s3 {
+    min-height: 142px;
+  }
+  .pc.s2 .ph,
+  .pc.s3 .ph {
+    width: 52px;
+    height: 52px;
+    border-width: 3px;
+  }
+  .pc.s1 .ph {
+    width: 64px;
+    height: 64px;
+  }
+  .pc.s1 small {
+    font-size: 28px;
+  }
+  .pc.s2 small,
+  .pc.s3 small {
+    font-size: 26px;
+  }
+  .pc.s2 b,
+  .pc.s3 b {
+    font-size: 14px;
+  }
+  .pc.s1 b {
+    font-size: 15px;
+  }
+  .pc.s1:before,
+  .pc.s2:before,
+  .pc.s3:before {
+    font-size: 78px;
+    top: -6px;
+    right: 2px;
+  }
+  .md {
+    font-size: 20px;
+    top: 4px;
+    left: 5px;
+  }
+  .pc em {
+    font-size: 12px;
+    padding: 0 6px;
+  }
+  .pc .av .fl {
+    width: 22px;
+    height: 15px;
+  }
+  .pc.s1 .av .fl {
+    width: 26px;
+    height: 17px;
+  }
+}
+
+/* Righe di classifica: 1° oro, 2° argento, 3° bronzo ben visibili */
+tbody tr.p1 {
+  background: linear-gradient(90deg, #f5c51833, transparent 65%);
+}
+tbody tr.p2 {
+  background: linear-gradient(90deg, #d3d7dd40, transparent 65%);
+}
+tbody tr.p3 {
+  background: linear-gradient(90deg, #d98b3f40, transparent 65%);
+}
+tr.p1 td:first-child {
+  box-shadow: inset 6px 0 #f5c518;
+}
+tr.p2 td:first-child {
+  box-shadow: inset 6px 0 #d3d7dd;
+}
+tr.p3 td:first-child {
+  box-shadow: inset 6px 0 #d98b3f;
+}
+tbody tr.p1 td,
+tbody tr.p2 td,
+tbody tr.p3 td {
+  font-weight: 700;
+}
+tbody tr.p1 .pb,
+tbody tr.p2 .pb,
+tbody tr.p3 .pb {
+  min-width: 38px;
+  height: 36px;
+  font-size: 22px;
+  box-shadow: 0 0 14px color-mix(in srgb, currentColor 40%, transparent);
+}
+tbody tr.p1:hover,
+tbody tr.p2:hover,
+tbody tr.p3:hover {
+  filter: brightness(1.12);
+}
+.pb.s {
+  background: linear-gradient(135deg, #fff, #c3c8d0);
+  box-shadow: 0 0 14px #d3d7dd88;
+}
+.pb.b {
+  background: linear-gradient(135deg, #f0b27a, #b86a25);
+  box-shadow: 0 0 14px #d98b3f88;
+}
+
+/* Posizione in classifica nelle card (piloti e squadre) */
+.rk {
+  font:
+    italic 800 26px/1 "Barlow Condensed",
+    sans-serif;
+  color: var(--tc, var(--fg));
+  font-style: italic;
+}
+.rk.r1,
+.rk.r2,
+.rk.r3 {
+  padding: 3px 12px 3px 8px;
+  border-radius: 99px;
+  font-size: 28px;
+  color: #1a1a1a;
+}
+.rk.r1 {
+  background: linear-gradient(135deg, #ffe27a, #e0a800);
+}
+.rk.r2 {
+  background: linear-gradient(135deg, #fff, #b9bfc8);
+}
+.rk.r3 {
+  background: linear-gradient(135deg, #f0b27a, #b86a25);
+}
+.dcd .rk {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-size: 20px;
+  z-index: 1;
+}
+.dcd .rk.r1,
+.dcd .rk.r2,
+.dcd .rk.r3 {
+  font-size: 22px;
+}
+.dcd .wm {
+  right: 70px;
+}
+.tc.p1 {
+  border-color: #f5c518aa;
+  border-top-color: #f5c518;
+  box-shadow: 0 6px 24px #f5c51826;
+}
+.tc.p2 {
+  border-color: #d3d7dd99;
+  border-top: 6px solid #d3d7dd;
+  box-shadow: 0 6px 24px #d3d7dd30;
+}
+.tc.p3 {
+  border-color: #d98b3f99;
+  border-top: 6px solid #d98b3f;
+  box-shadow: 0 6px 24px #d98b3f30;
+}
+
+/* Calendario: 2° e 3° come pillole argento/bronzo */
+.mp i {
+  padding: 1px 7px;
+  border-radius: 99px;
+  font-size: 15px;
+  color: #1a1a1a;
+}
+.mp .m2 {
+  background: linear-gradient(135deg, #fff, #b9bfc8);
+}
+.mp .m3 {
+  background: linear-gradient(135deg, #f0b27a, #b86a25);
+}
+
+/* Select con ricerca */
+.ss {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  min-width: 260px;
+  margin: 0 0 12px;
+}
+.ssb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  font: inherit;
+  text-align: left;
+  padding: 9px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--fg);
+  cursor: pointer;
+}
+.ssb:hover,
+.ssb:focus-visible {
+  border-color: var(--red);
+  outline: none;
+}
+.ssb span {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ssb em {
+  font-style: normal;
+  color: var(--mut);
+}
+.ssp {
+  position: absolute;
+  z-index: 30;
+  left: 0;
+  right: 0;
+  top: calc(100% + 6px);
+  min-width: 280px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 0 16px 40px #0007;
+  padding: 8px;
+}
+.ssi {
+  width: 100%;
+  font: inherit;
+  padding: 9px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--card2);
+  color: var(--fg);
+  outline: none;
+}
+.ssi:focus {
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px #e1060033;
+}
+.ssl {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+.ssl li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 9px;
+  cursor: pointer;
+}
+.ssl li:hover {
+  background: var(--card2);
+}
+.ssl li.on {
+  background: color-mix(in srgb, var(--red) 22%, var(--card2));
+  font-weight: 700;
+}
+.ssn {
+  margin: 10px 4px 4px;
+}
+.ss {
+  min-width: 320px;
+}
+.ss .fg {
+  font-size: 16px;
+  flex: none;
+}
+.ss .flag {
+  height: 16px;
+  width: 24px;
+}
+.ssl li span:not(.fg),
+.ssb span:not(.fg) {
+  text-align: left;
+}
+@media (max-width: 520px) {
+  .ss {
+    min-width: 0;
+    width: 100%;
+  }
+}
+.mp .m2,
+.mp .m3 {
+  color: #1a1a1a;
+}
+
+/* Logo ufficiale sopra l'emblema colorato */
+.ti img.lg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 56%;
+  object-fit: contain;
+  z-index: 1;
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  filter: drop-shadow(0 1px 2px #0008);
+}
+.ti.lgok text {
+  display: none;
+}
+.ti img.loc {
+  z-index: 2;
+}
+.av .ti img.lg {
+  display: none;
+}
+.av .ti.lgok text {
+  display: none;
+}
+.wall .ti img.lg,
+.pc .ti img.lg,
+.hero .ti img.lg {
+  width: 74%;
+  height: 60%;
+}
+
+/* Logo F1 ufficiale opzionale: salva il file come img/f1-logo.svg (o .png rinominando in index.html) */
+.logo {
+  display: inline-flex;
+  align-items: center;
+}
+.logo .f1lg {
+  height: 24px;
+  width: auto;
+  margin-right: 4px;
+}
+.logo.hasimg .t {
+  display: none;
+}
+
+/* Campione del mondo / titolo matematico */
+.champ {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 0 16px;
+  padding: 16px 20px;
+  border-radius: var(--r);
+  text-decoration: none;
+  overflow: hidden;
+  border: 2px solid #f5c518;
+  box-shadow: 0 10px 40px #f5c51840;
+  background: linear-gradient(
+    110deg,
+    color-mix(in srgb, #f5c518 28%, var(--card)),
+    color-mix(in srgb, var(--tc) 28%, var(--card)) 60%,
+    var(--card)
+  );
+}
+.champ .cup {
+  font-size: 44px;
+  line-height: 1;
+  filter: drop-shadow(0 4px 10px #0007);
+}
+.champ .ph {
+  width: 64px;
+  height: 64px;
+  border: 3px solid #f5c518;
+}
+.champ > div {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.champ small {
+  color: #f5c518;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  font-size: 12px;
+}
+.champ b {
+  font:
+    italic 800 clamp(22px, 4vw, 32px)/1.1 "Barlow Condensed",
+    Impact,
+    sans-serif;
+}
+.champ span:last-child {
+  color: var(--mut);
+  font-size: 13px;
+}
+@media (max-width: 520px) {
+  .champ {
+    padding: 12px;
+    gap: 10px;
+  }
+  .champ .cup {
+    font-size: 30px;
+  }
+  .champ .ph {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+/* Header: logo F1 + "Formula 1" */
+.logo .f1lg {
+  height: 28px;
+  width: 28px;
+  border-radius: 7px;
+  margin-right: 8px;
+  object-fit: contain;
+}
+.logo.hasimg .t {
+  display: inline;
+}
+.logo .t {
+  font-size: 22px;
+  letter-spacing: 0.01em;
+}
+.logo b {
+  margin-left: 6px;
+}
+@media (max-width: 760px) {
+  .logo .t {
+    display: none !important;
+  }
+  .logo .f1lg {
+    margin-right: 0;
+  }
+  .logo b {
+    margin-left: 4px;
+  }
+}
+.dc2 .wt {
+  margin: 1px 0 2px;
+}
+
+/* Frecce di navigazione */
+.wallw {
+  position: relative;
+}
+.wb {
+  position: absolute;
+  top: 28px;
+  z-index: 5;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  padding: 0 0 3px;
+  font:
+    700 26px/1 system-ui,
+    sans-serif;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--fg);
+  cursor: pointer;
+  box-shadow: 0 4px 14px #0005;
+  transition: 0.15s;
+}
+.wb:hover {
+  background: var(--red);
+  border-color: var(--red);
+  color: #fff;
+}
+.wl {
+  left: -6px;
+}
+.wr {
+  right: -6px;
+}
+.wb.off {
+  opacity: 0;
+  pointer-events: none;
+}
+.hero > .pn {
+  margin-left: auto;
+  position: relative;
+  z-index: 2;
+  align-self: flex-start;
+}
+.nv a.off {
+  opacity: 0.3;
+  pointer-events: none;
+}
+.pn a {
+  cursor: pointer;
+}
+
+/* Tema chiaro: 1°/2°/3° con colori più scuri, altrimenti l'argento si perde sullo sfondo chiaro */
+:root[data-theme="light"] .pc.s1 {
+  --m: #c99200;
+}
+:root[data-theme="light"] .pc.s2 {
+  --m: #6a727d;
+  border-color: #8b919acc;
+  border-top-color: #7d8591;
+  box-shadow: 0 10px 28px #8b919a55;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, #8b919a 24%, var(--card)),
+    color-mix(in srgb, var(--tc) 14%, var(--card)) 62%,
+    var(--card)
+  );
+}
+:root[data-theme="light"] .pc.s3 {
+  --m: #a85a14;
+  border-color: #d98b3fcc;
+  box-shadow: 0 10px 28px #d98b3f55;
+}
+:root[data-theme="light"] .pc.s1 small,
+:root[data-theme="light"] .pc.s2 small,
+:root[data-theme="light"] .pc.s3 small {
+  text-shadow: none;
+}
+:root[data-theme="light"] .pc.s1:before,
+:root[data-theme="light"] .pc.s2:before,
+:root[data-theme="light"] .pc.s3:before {
+  opacity: 0.22;
+}
+:root[data-theme="light"] .pc.s2 .ph {
+  border-color: #7d8591;
+}
+:root[data-theme="light"] .pc em {
+  background: color-mix(in srgb, var(--m) 20%, transparent);
+  color: var(--fg);
+}
+:root[data-theme="light"] tbody tr.p2 {
+  background: linear-gradient(90deg, #8b919a40, transparent 65%);
+}
+:root[data-theme="light"] tbody tr.p3 {
+  background: linear-gradient(90deg, #d98b3f40, transparent 65%);
+}
+:root[data-theme="light"] tr.p2 td:first-child {
+  box-shadow: inset 6px 0 #7d8591;
+}
+:root[data-theme="light"] .pb.s,
+:root[data-theme="light"] .rk.r2,
+:root[data-theme="light"] .mp .m2 {
+  background: linear-gradient(135deg, #e6e9ee, #9aa1ad);
+  border: 1px solid #7d8591;
+  color: #1a1a1a;
+}
+:root[data-theme="light"] .tc.p2 {
+  border-color: #8b919acc;
+  border-top-color: #7d8591;
+}
+:root[data-theme="light"] .tdv.p2 {
+  border-color: #7d8591aa;
+}
+:root[data-theme="light"] .trw.s {
+  border-left-color: #7d8591;
+}
+
+/* Loghi a colori (brandlogos.net) su badge bianco */
+.ti img.bl {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 12%;
+  background: #fff;
+  border-radius: 24%;
+  z-index: 1;
+  box-shadow: 0 1px 5px #0006;
+}
+.ti.blok svg,
+.ti.blok img.lg {
+  display: none;
+}
+.av .ti img.bl {
+  display: none;
+}
+.av .ti.blok svg {
+  display: block;
+}
+.wall .ti img.bl,
+.pc .ti img.bl,
+.hero .ti img.bl {
+  padding: 10%;
+}
+
+/* Etichetta "1 SUL PODIO": argento (2°) o bronzo (3°) */
+.tag.t2 {
+  background: linear-gradient(135deg, #fff, #b9bfc8);
+  color: #1a1a1a;
+  box-shadow: 0 0 0 1px #7d8591;
+}
+.tag.t3 {
+  background: linear-gradient(135deg, #f0b27a, #b86a25);
+  color: #2c1600;
+}
+
+/* Logo vero della squadra ovunque, anche nei badge piccoli accanto ai piloti */
+.av .ti img.bl {
+  display: block;
+}
+.av .ti.blok svg {
+  display: none;
+}
+.av .ti {
+  --s: 24px;
+  right: -7px;
+  bottom: -6px;
+}
+.hero .av .ti {
+  --s: 38px;
+}
+.pc .av .ti {
+  --s: 32px;
+}
+.pc.s1 .av .ti {
+  --s: 40px;
+}
+.dc2 .av .ti {
+  --s: 26px;
+}
+#sr .av .ti {
+  --s: 20px;
+}
+.av .ti img.bl {
+  padding: 12%;
+  border-radius: 28%;
+  box-shadow:
+    0 0 0 1.5px var(--card),
+    0 1px 4px #0006;
+}
+.tn .ti img.bl,
+.wt .ti img.bl,
+.mp .ti img.bl,
+.w .ti img.bl,
+.tch .ti img.bl {
+  padding: 10%;
+  border-radius: 26%;
+  box-shadow: 0 0 0 1px #0003;
+}
+@media (max-width: 520px) {
+  .pc .av .ti {
+    --s: 26px;
+  }
+  .pc.s1 .av .ti {
+    --s: 30px;
+  }
+  .hero .av .ti {
+    --s: 30px;
+  }
+}
+.av .ti {
+  --s: 20px;
+  right: -6px;
+  bottom: -5px;
+}
+
+/* Card leader: foto grande e ben visibile, logo squadra e bandiera piccoli ai lati */
+.dc2 .dn {
+  gap: 14px;
+}
+.dc2 .av .ph {
+  width: 76px;
+  height: 76px;
+  font-size: 18px;
+  border: 3px solid var(--tc, var(--red));
+}
+.dc2 .av .ti {
+  --s: 30px;
+  right: -8px;
+  bottom: -6px;
+}
+.dc2 .av .fl {
+  width: 28px;
+  height: 19px;
+  left: -8px;
+  bottom: -4px;
+}
+.dc2 .dn > span {
+  min-width: 0;
+}
+
+/* Medaglia in alto nelle card squadra (1°/2°/3°) */
+.tc {
+  position: relative;
+}
+.tc.p1,
+.tc.p2,
+.tc.p3 {
+  padding-top: 40px;
+}
+.tmb {
+  position: absolute;
+  top: 6px;
+  left: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font:
+    italic 800 18px/1 "Barlow Condensed",
+    sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.tmb .mdl {
+  font-size: 26px;
+  filter: drop-shadow(0 2px 5px #0008);
+}
+.tc.p1 .tmb {
+  color: #f5c518;
+}
+.tc.p2 .tmb {
+  color: #d3d7dd;
+}
+.tc.p3 .tmb {
+  color: #d98b3f;
+}
+:root[data-theme="light"] .tc.p1 .tmb {
+  color: #a87c00;
+}
+:root[data-theme="light"] .tc.p2 .tmb {
+  color: #5f6670;
+}
+:root[data-theme="light"] .tc.p3 .tmb {
+  color: #8f511a;
+}
+
+/* Piloti dentro la card squadra: posizione in classifica (con medaglia se 1°/2°/3°) */
+.tcl {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+.tcd .rk {
+  font-size: 16px;
+  flex: none;
+}
+.tcd .rk.r1,
+.tcd .rk.r2,
+.tcd .rk.r3 {
+  font-size: 16px;
+  padding: 2px 9px 2px 6px;
+}
+.chip .rk {
+  font-size: 15px;
+  margin-left: 6px;
+}
+.chip .rk.r1,
+.chip .rk.r2,
+.chip .rk.r3 {
+  font-size: 15px;
+  padding: 2px 9px 2px 6px;
+}
+.hero .rk {
+  font-size: 20px;
+  vertical-align: middle;
+}
+.hero .rk.r1,
+.hero .rk.r2,
+.hero .rk.r3 {
+  font-size: 20px;
+}
+
+/* Card pilota: bordo oro/argento/bronzo per i primi 3 */
+.dcd.p1 {
+  border-color: #f5c518aa;
+  border-left-color: #f5c518;
+  box-shadow: 0 6px 24px #f5c51826;
+}
+.dcd.p2 {
+  border-color: #d3d7dd99;
+  border-left-color: #d3d7dd;
+  box-shadow: 0 6px 24px #d3d7dd30;
+}
+.dcd.p3 {
+  border-color: #d98b3f99;
+  border-left-color: #d98b3f;
+  box-shadow: 0 6px 24px #d98b3f30;
+}
+:root[data-theme="light"] .dcd.p2 {
+  border-color: #8b919acc;
+  border-left-color: #7d8591;
+}
+
+/* ═══ Header v12: logo F1 al posto della scritta + riga rossa di posizione a tutta larghezza ═══ */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+}
+.logo .lm {
+  display: grid;
+  place-items: center;
+}
+.logo .f1lg,
+.logo .f1fb {
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  border-radius: 10px;
+  object-fit: contain;
+  filter: drop-shadow(0 3px 10px #e1060055);
+  transition: transform 0.25s;
+}
+.logo:hover .f1lg,
+.logo:hover .f1fb {
+  transform: rotate(-6deg) scale(1.06);
+}
+.logo.hasimg .f1fb {
+  display: none;
+}
+.logo b {
+  margin: 0;
+  padding: 2px 9px 1px;
+  border-radius: 8px;
+  background: var(--red);
+  color: #fff;
+  font:
+    italic 800 20px "Barlow Condensed",
+    Impact,
+    sans-serif;
+  letter-spacing: 0.04em;
+}
+@media (max-width: 640px) {
+  .logo .f1lg,
+  .logo .f1fb {
+    width: 34px;
+    height: 34px;
+  }
+  .logo b {
+    font-size: 18px;
+  }
+}
+
+/* Riga di base su tutta la larghezza dell'header + segmento acceso sotto la voce attiva */
+header:after {
+  left: 0;
+  right: 0;
+  width: auto;
+  height: 3px;
+  background: color-mix(in srgb, var(--red) 30%, transparent);
+}
+#nb {
+  position: absolute;
+  z-index: 2;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+  background: var(--red);
+  box-shadow: 0 0 14px 1px var(--red);
+  pointer-events: none;
+  transition:
+    left 0.35s cubic-bezier(0.65, 0, 0.35, 1),
+    width 0.35s cubic-bezier(0.65, 0, 0.35, 1),
+    opacity 0.2s;
+}
+nav a.on {
+  background: var(--red);
+  color: #fff;
+  box-shadow: 0 4px 16px #e1060055;
+}
+
+/* Frecce ‹ › per scorrere la striscia punti e la tabella risultati nella pagina pilota */
+.sw {
+  position: relative;
+}
+.sw .spark {
+  position: relative;
+  scrollbar-width: none;
+}
+.sw .spark::-webkit-scrollbar {
+  display: none;
+}
+.sa {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  padding: 0 0 3px;
+  font:
+    700 26px/1 system-ui,
+    sans-serif;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--fg);
+  cursor: pointer;
+  box-shadow: 0 4px 14px #0006;
+  transition:
+    background 0.15s,
+    opacity 0.15s;
+}
+.sa:hover {
+  background: var(--red);
+  border-color: var(--red);
+  color: #fff;
+}
+.sal {
+  left: 4px;
+}
+.sar {
+  right: 4px;
+}
+.sa.off {
+  opacity: 0;
+  pointer-events: none;
+}
+.sw.tb .sa {
+  top: 52px;
+  transform: none;
+}
+@media (max-width: 520px) {
+  .sa {
+    width: 34px;
+    height: 34px;
+    font-size: 24px;
+  }
+}
