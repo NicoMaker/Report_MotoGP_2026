@@ -21,20 +21,7 @@
     <link rel="stylesheet" href="css/style.css?v=13" />
     <link rel="stylesheet" href="css/intro.css?v=13" />
     <link rel="stylesheet" href="css/modern.css?v=21" />
-    <script>
-      // Tema applicato subito (evita il lampo) + intro a ogni ingresso nel sito
-      (function () {
-        var r = document.documentElement;
-        try {
-          var T = localStorage.getItem("mgp_theme");
-          if (T) r.dataset.theme = T;
-        } catch (e) {}
-        r.classList.add("intro-on");
-        addEventListener("pageshow", function (e) {
-          if (e.persisted) location.reload();
-        });
-      })();
-    </script>
+    <script src="js/components/theme.js"></script>
   </head>
   <body>
     <!-- INTRO SPLASH (a ogni ingresso / refresh) -->

@@ -33,7 +33,7 @@ function driver(id) {
       [medal(3) + " 3° posti", T.t],
       ["⏱ Pole", T.p],
       ["Podi", nPod],
-      ["Migliore", all.length ? best + "°" : "-"],
+      ["Posizione Miglore Raggiunta", all.length ? best + "°" : "-"],
       ["Punti", st?.points ?? "-"],
     ];
   const tm = st?.Constructors?.at(-1) || all.at(-1)?.Constructor;
