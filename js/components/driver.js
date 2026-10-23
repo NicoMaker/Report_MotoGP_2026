@@ -7,6 +7,7 @@ function driver(id) {
       const x = S.res[r.round]?.Results?.find((y) => y.Driver.driverId === id);
       return (
         x && [
+          r.round,
           `<a href="#/race/${r.round}">${r.raceName}</a>`,
           tn(x.Constructor),
           x.grid,
@@ -78,6 +79,7 @@ function driver(id) {
     `<h3 class="sec">Risultati gara per gara</h3>` +
     tbl(
       [
+        "#",
         "Gara",
         "Squadra",
         "Griglia",
