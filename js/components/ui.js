@@ -112,6 +112,21 @@ const champBox = (kind) => {
         : `Con ancora ${t.left} gar${t.left === 1 ? "a" : "e"} da disputare · ${t.a.points} pt, +${t.gap} su ${who} (restano al massimo ${t.max} pt)`);
   return `<a class="champ" href="#/${d ? "driver/" + w.driverId : "team/" + w.constructorId}" style="--tc:${col(c || "x")}"><span class="cup">🏆</span>${d ? ph(w) : ticon(w.constructorId, w.name, 56)}<div><small>${t.state === "final" ? "CAMPIONE DEL MONDO" : "TITOLO MATEMATICO"}</small><b>${msg}</b><span>${sub}</span></div></a>`;
 };
+// Etichetta "CAMPIONE" per le pagine pilota/squadra: compare solo se quel pilota/squadra ha chiuso il titolo
+// (kind "d" piloti, "c" squadre). "final" = stagione finita, "clinched" = campione matematico con gare ancora da correre.
+const champTag = (kind, id) => {
+  const t = titles()[kind];
+  if (!t || t.state === "open" || !t.a) return "";
+  const d = kind === "d",
+    wid = d ? t.a.Driver.driverId : t.a.Constructor.constructorId;
+  if (wid !== id) return "";
+  const title = d ? "Mondiale Piloti" : "Mondiale Squadre",
+    fin = t.state === "final",
+    sub = fin
+      ? `${title} 2026`
+      : `${title} 2026 · con ${t.left} gar${t.left === 1 ? "a" : "e"} d'anticipo`;
+  return `<span class="ctag${fin ? "" : " mat"}" title="${sub}"><i>🏆</i><b>${fin ? "CAMPIONE DEL MONDO" : "CAMPIONE MATEMATICO"}</b><small>${sub}</small></span>`;
+};
 // Frecce ‹ › per passare al pilota/squadra precedente o successivo (ordine di classifica)
 const pn = (kind, id) => {
   const ids =

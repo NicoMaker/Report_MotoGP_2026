@@ -116,7 +116,7 @@ function team(id) {
       ["Podi", T.w + T.s + T.t],
     ];
   A.innerHTML =
-    `<div class="hero th" style="--tc:${k}">${ticon(id, C.name, 104)}<div><h2 style="margin:0">${C.name}</h2><span class="mut">${flag(C.nationality)} ${C.nationality || ""} · ${ds.length} piloti</span> ${rk(c.position)}</div><span class="wm tw2">${ticon(id, C.name, 150)}</span>${pn("c", id)}</div>` +
+    `<div class="hero th" style="--tc:${k}">${ticon(id, C.name, 104)}<div><h2 style="margin:0">${C.name}</h2><span class="mut">${flag(C.nationality)} ${C.nationality || ""} · ${ds.length} piloti</span> ${rk(c.position)}${champTag("c", id)}</div><span class="wm tw2">${ticon(id, C.name, 150)}</span>${pn("c", id)}</div>` +
     `<div class="stats">${stats.map(([a, b]) => `<div><b>${b}</b><small>${a}</small></div>`).join("")}</div>` +
     `<div class="chips">${ds.map((d) => `<a class="chip" href="#/driver/${d.Driver.driverId}" style="text-decoration:none">${rk(d.positionText)}${ph(d.Driver)}<b>${d.Driver.givenName[0]}. ${d.Driver.familyName}</b><em>${d.points} pt</em></a>`).join("")}</div>` +
     `<h3 class="sec" style="display:flex;align-items:center;gap:8px">${ticon(id, C.name, 22)} Risultati gara per gara</h3>${fbox("Cerca gara, pilota, vittoria, doppietta…")}<div class="grid trl">${rows.join("")}</div>`;
